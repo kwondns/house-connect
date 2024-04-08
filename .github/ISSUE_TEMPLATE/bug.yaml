@@ -34,7 +34,6 @@ body:
       description: "문제와 관련된 코드가 있다면 작성해주세요."
       placeholder: "TypeScript Error Code"
       value: "없음"
-      render: TypeScript
   - type: textarea
     id: detailed-description
     attributes:
