@@ -1,4 +1,4 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 
 import { ProfileModalAtom } from '@/stores/globalModal.store';
 import ModalBackdrop from '@/components/organisms/modals/ModalBackdrop';
@@ -7,6 +7,7 @@ import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
 import Img from '@/components/atoms/Img';
 import Button from '@/components/atoms/Button';
+import IconButton from '@/components/molecules/IconButton';
 
 export default function ProfileModal() {
   const {
@@ -17,15 +18,29 @@ export default function ProfileModal() {
     onClickChat,
     userName,
   } = useRecoilValue(ProfileModalAtom);
+  const resetProfileModal = useResetRecoilState(ProfileModalAtom);
+
+  const onClickCloseIcon = () => resetProfileModal();
 
   return isOpen ? (
     <ModalBackdrop modalType="Profile">
-      <Container.FlexCol className="w-full max-w-96 overflow-hidden rounded-xl">
+      {/* <Icon type="close" /> */}
+      <Container.FlexCol className="relative w-full max-w-96 cursor-auto overflow-hidden rounded-xl">
+        {/* [&>svg>path]:scale-[2] [&>svg]:size-6 */}
+        <IconButton
+          type="button"
+          button="Ghost"
+          iconType="close"
+          fill="bg"
+          className="absolute right-4 top-4 [&_svg]:size-6 [&_svg_path]:scale-[1.8]"
+          onClick={onClickCloseIcon}
+        />
+
         <Container.FlexRow className="h-96 max-h-96 w-full items-center justify-center bg-brown">
           {profileImage ? (
             <Img src={profileImage} alt="Profile Image" />
           ) : (
-            <Icon className="[&>svg]:size-52" type="avartar" />
+            <Icon className="cursor-pointer [&>svg]:size-52" type="avartar" />
           )}
         </Container.FlexRow>
         <Container.FlexCol className="items-center bg-bg">
