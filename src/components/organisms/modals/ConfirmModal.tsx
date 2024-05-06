@@ -19,7 +19,7 @@ export default function ConfirmModal() {
 
   return isOpen ? (
     <ModalBackdrop modalType="Confirm">
-      <Container.FlexCol className="w-full max-w-96 gap-3 rounded-2xl bg-bg p-6 text-brown">
+      <Container.FlexCol className="w-full max-w-96 cursor-auto gap-3 rounded-2xl bg-bg p-6 text-brown">
         <Container.FlexCol className="gap-6">
           <Typography.SubTitle3>{title}</Typography.SubTitle3>
           <Typography.P3>{message}</Typography.P3>
