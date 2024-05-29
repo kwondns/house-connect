@@ -29,6 +29,7 @@ import {
   ConfirmModalState,
   ProfileModalState,
 } from '@/types/modal.type';
+import TextArea from '@/components/atoms/TextArea';
 
 export default function ComponentTest() {
   const [carouselStep, setCarouselStep] = useState<number>(0);
@@ -684,6 +685,24 @@ export default function ComponentTest() {
       >
         Profile modal 열기
       </button>
+      <button
+        type="button"
+        className="mb-10"
+        onClick={() => setRoommateApplicationModal(RoommateApplicationContext)}
+      >
+        RoommateApplicationStatus modal 열기
+      </button>
+      <button
+        type="button"
+        className="mb-10"
+        onClick={() => setRoommateApplyModal(RoommateApplyModalContext)}
+      >
+        Roommate modal 열기
+      </button>
+      <hr style={{ marginTop: '2rem', marginBottom: '2rem' }} />
+      {/* Alert & Confirm & Profile Modal test */}
+      <h1 className="text-Head2">TextArea</h1>
+      <TextArea rows={10} />
     </div>
   );
 }
