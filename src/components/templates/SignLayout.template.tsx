@@ -28,8 +28,8 @@ export default function SignLayoutTemplate() {
             });
 
             navigate('/sign/up/info');
-          } 
-          // 성공적으로 user추가정보(birth, gender, nickname)를 update했을 때 
+          }
+          // 성공적으로 user추가정보(birth, gender, nickname)를 update했을 때
           else {
             navigate('/signup-intro');
           }
@@ -58,7 +58,7 @@ export default function SignLayoutTemplate() {
       <Container className="h-full w-[50%] pl-[4.75rem] pt-[calc(50vh-147px)]">
         <Icon className="translate-y-[-50%]" type="character" />
       </Container>
-      <Container className="absolute right-0 w-[50%] pl-[7.125rem]">
+      <Container className="absolute right-0 w-[50%] pl-[7.125rem] [&_input]:placeholder:text-[0.875rem]">
         <Outlet />
       </Container>
     </>
