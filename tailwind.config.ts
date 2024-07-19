@@ -6,7 +6,10 @@ export default {
   theme: {
     extend: {
       screens: {
-        screen1000: { max: '1000px' },
+        laptop: '1440px',
+        screen1140: '1140px',
+        tablet: '768px',
+        mobile: '430px',
       },
       colors: {
         bg: '#FFFAF5',
