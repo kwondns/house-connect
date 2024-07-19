@@ -26,6 +26,7 @@ export default function SignUpInfoTemplate() {
     const { gender, ...others } = data;
     updateUserInfo({ ...others, gender: gender === 1 || gender === 3 ? 1 : 2 });
   };
+
   useEffect(() => {
     const { errors } = form.formState;
     if (errors.birth) {
@@ -34,7 +35,7 @@ export default function SignUpInfoTemplate() {
       form.setError('birth', errors.gender);
       form.clearErrors('gender');
     }
-  }, [form.formState.errors]);
+  }, [form.formState.errors, form.getValues('gender')]);
 
   return (
     <Container.FlexCol className="min-w-full flex-1 gap-[3.25rem]">
@@ -62,8 +63,7 @@ export default function SignUpInfoTemplate() {
                 type="text"
                 name="gender"
                 placeholder="2"
-                inputStyle="w-[2.5625rem] mt-[2rem] placeholder:text-[0.9375rem]"
-                containerStyle=""
+                inputStyle="w-[2.5625rem] mt-[2rem] text-[0.875rem]"
                 disabled={isPending}
               />
               <Container.FlexRow className="gap-x-[0.75rem] pt-3">
