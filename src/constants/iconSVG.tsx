@@ -33,6 +33,15 @@ import Camera from '@/assets/icons/camera.svg?react';
 import Next from '@/assets/icons/next.svg?react';
 import Prev from '@/assets/icons/prev.svg?react';
 import Back from '@/assets/icons/back.svg?react';
+import MonthlyRentalPrice from '@/assets/icons/monthly-rental-price.svg?react';
+import SemiMonthlyRentalPrice from '@/assets/icons/semi-monthly-rental-price.svg?react';
+import YearRentalPrice from '@/assets/icons/year-rental-price.svg?react';
+import DontMindRentalPrice from '@/assets/icons/dont-mind-rental-price.svg?react';
+import OnePerson from '@/assets/icons/one-person.svg?react';
+import TwoPeople from '@/assets/icons/two-people.svg?react';
+import ThreePeople from '@/assets/icons/three-people.svg?react';
+import DontMindPeople from '@/assets/icons/dont-mind-people.svg?react';
+import Done from '@/assets/icons/done.svg?react';
 import { IconType } from '@/types/icon.type';
 import cn from '@/libs/cn';
 
@@ -96,13 +105,13 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
   ),
   'villa-townhouse': ({ className, ...others }) => (
     <VillaTownhouse
-      className={cn('w-[4.75rem] h-[3.75rem]', className)}
+      className={cn('w-[2.75rem] h-[2.875rem]', className)}
       {...others}
     />
   ),
   apartment: ({ className, ...others }) => (
     <Apartment
-      className={cn('w-[4.75rem] h-[3.75rem]', className)}
+      className={cn('w-[3.125rem] h-[3.5rem]', className)}
       {...others}
     />
   ),
@@ -201,6 +210,61 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
   ),
   back: ({ className, ...others }) => (
     <Back className={cn('w-[2.75rem] h-[2.75rem]', className)} {...others} />
+  ),
+
+  'monthly-rental-price': ({ className, ...others }) => (
+    <MonthlyRentalPrice
+      className={cn('w-[2.5625rem] h-[2.25rem]', className)}
+      {...others}
+    />
+  ),
+  'semi-monthly-rental-price': ({ className, ...others }) => (
+    <SemiMonthlyRentalPrice
+      className={cn('w-[3.4375rem] h-[2.5625rem]', className)}
+      {...others}
+    />
+  ),
+  'year-rental-price': ({ className, ...others }) => (
+    <YearRentalPrice
+      className={cn('w-[2.375rem] h-[2.5625rem]', className)}
+      {...others}
+    />
+  ),
+  'dont-mind-rental-price': ({ className, ...others }) => (
+    <DontMindRentalPrice
+      className={cn('w-[1.875rem] h-[2.875rem]', className)}
+      {...others}
+    />
+  ),
+  'one-person': ({ className, ...others }) => (
+    <OnePerson
+      className={cn('w-[1.4375rem] h-[1.4375rem]', className)}
+      {...others}
+    />
+  ),
+  'two-people': ({ className, ...others }) => (
+    <TwoPeople
+      className={cn('w-[3.125rem] h-[1.4375rem]', className)}
+      {...others}
+    />
+  ),
+  'three-people': ({ className, ...others }) => (
+    <ThreePeople
+      className={cn('w-[4.8125rem] h-[1.4375rem]', className)}
+      {...others}
+    />
+  ),
+  'dont-mind-people': ({ className, ...others }) => (
+    <DontMindPeople
+      className={cn('w-[2.5rem] h-[1.4375rem]', className)}
+      {...others}
+    />
+  ),
+  done: ({ className, ...others }) => (
+    <Done
+      className={cn('w-[1.0625rem] h-[0.8125rem]', className)}
+      {...others}
+    />
   ),
 };
 

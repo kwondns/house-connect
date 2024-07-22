@@ -19,7 +19,7 @@ export default function Carousel(props: CarouselProps) {
 
   const translateX = `-translate-x-[${order * 100}%]`;
   return (
-    <Container.FlexRow className="w-full overflow-hidden">
+    <Container.FlexRow className="w-full overflow-hidden overflow-y-scroll">
       <Container.FlexRow
         className={`w-full transition ${translateX}`}
         ref={containerRef}

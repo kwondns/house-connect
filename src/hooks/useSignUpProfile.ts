@@ -1,18 +1,32 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
 import { supabase } from '@/libs/supabaseClient';
 import { SignUpProfileType } from '@/types/signUp.type';
 import { createToast, errorToast, successToast } from '@/libs/toast';
+import { UserAtom } from '@/stores/auth.store';
+
+class CustomSupabaseError extends Error {
+  constructor(
+    public message: string,
+    public code: number,
+    public hint: string,
+    public details: string,
+  ) {
+    super(message);
+    this.name = 'SupabaseError';
+    this.code = code;
+    this.hint = hint;
+    this.details = details;
+  }
+}
 
 const useSignUpProfile = () => {
   const navigate = useNavigate();
+  const user = useRecoilValue(UserAtom);
   const { mutate, isPending } = useMutation({
     mutationFn: async (payload: SignUpProfileType) => {
-      // ! TODO useAuthState 추후 적용
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
       if (!user) throw new Error('Authentication Required!');
       const {
         smoking,
@@ -45,19 +59,42 @@ const useSignUpProfile = () => {
       };
       const userMateStyle = {
         id: user.id,
-        gender: gender as number,
-        mates_number: mates_number as number,
+        mate_gender: gender as number,
+        mate_number: mates_number as number,
         mate_appeals,
       };
-      return Promise.all([
+
+      const responses = await Promise.all([
         supabase.from('user_lifestyle').upsert([userLifeStyle]),
         supabase.from('user_looking_house').upsert([userLookingHouse]),
         supabase.from('user_mate_style').upsert([userMateStyle]),
       ]);
+
+      responses.forEach(response => {
+        if (response.error) {
+          const { message, hint, details } = response.error;
+          const supabaseError = new CustomSupabaseError(
+            message,
+            response.status,
+            hint,
+            details,
+          );
+
+          throw supabaseError;
+        }
+      });
+
+      return responses;
     },
     onMutate: () =>
       createToast('signUpProfile', '프로필 설정을 마무리 하고 있습니다...'),
-    onError: () => errorToast('signUpProfile', '프로필 설정에 실패하였습니다.'),
+    onError: error => {
+      const supabaseError = error as CustomSupabaseError;
+      console.error(
+        `#️⃣ status: ${supabaseError.code}\n❌ message: ${supabaseError.message}`,
+      );
+      errorToast('signUpProfile', '프로필 설정에 실패하였습니다.');
+    },
     onSuccess: () => {
       successToast('signUpProfile', '프로필 설정을 완료했습니다.');
       navigate('/signup-outro');

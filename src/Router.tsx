@@ -133,7 +133,7 @@ const routes: RouteType[] = [
       },
       {
         path: 'signup-profile',
-        shouldProtected: true,
+        // shouldProtected: true,
         element: <SignUpProfile />,
       },
       {

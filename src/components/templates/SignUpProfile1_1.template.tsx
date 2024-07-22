@@ -35,12 +35,12 @@ export default function SignUpProfile1_1Template() {
           집 유형
         </Typography.SubTitle1>
         {/* TODO: 나중에 반응형 나오는 거 보고 flex-wrap을 지우고 grid로 할 지 생각해야 함. */}
-        <Container.FlexRow className="mb-[4.25rem] mt-11 flex-wrap gap-6">
+        <Container.Grid className="mb-[3.75rem] mt-7 grid-cols-2 gap-6 screen640:grid-cols-4">
           {houseTypeDisplayData.map(
             ({ displayValue, stateValue, iconType }) => (
               <IconButton.Outline
                 key={displayValue}
-                className="basis-[11.25rem] gap-y-5 rounded-lg py-5"
+                className="gap-y-5 rounded-lg py-5"
                 isActive={stateValue === houseType}
                 iconType={iconType}
                 direction="top"
@@ -56,28 +56,32 @@ export default function SignUpProfile1_1Template() {
             name="type"
             valueProp={houseType}
           />
-        </Container.FlexRow>
+        </Container.Grid>
         <Typography.SubTitle1 className="text-brown">
-          매물 종류
+          임대 형태
         </Typography.SubTitle1>
-        <Container.FlexRow className="mt-11 flex-wrap gap-6">
-          {rentalTypeDisplayData.map(({ displayValue, stateValue }) => (
-            <Button.Outline
-              key={displayValue}
-              className="basis-[11.25rem] rounded-lg py-5"
-              isActive={stateValue === rentalType}
-              onClick={() => onClickRentalType(stateValue)}
-            >
-              <Typography.P2 className="w-full text-brown">
-                {displayValue}
-              </Typography.P2>
-            </Button.Outline>
-          ))}
+        <Container.Grid className="mt-7 grid-cols-2 gap-6 screen640:grid-cols-4">
+          {rentalTypeDisplayData.map(
+            ({ displayValue, stateValue, iconType }) => (
+              <IconButton.Outline
+                key={displayValue}
+                className="gap-y-5 rounded-lg py-5"
+                isActive={stateValue === rentalType}
+                iconType={iconType}
+                direction="top"
+                onClick={() => onClickRentalType(stateValue)}
+              >
+                <Typography.P2 className="text-brown">
+                  {displayValue}
+                </Typography.P2>
+              </IconButton.Outline>
+            ),
+          )}
           <FormItem.Hidden<Pick<SignUpProfileFormType, 'rental_type'>>
             name="rental_type"
             valueProp={rentalType}
           />
-        </Container.FlexRow>
+        </Container.Grid>
       </Container.FlexCol>
     </Container.FlexCol>
   );

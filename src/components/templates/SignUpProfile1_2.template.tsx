@@ -42,6 +42,17 @@ export default function SignUpProfile1_2Template() {
         });
         return prev;
       }
+
+      if (prev.length >= 3) {
+        createToast('maxRegionLimit', '최대 3개의 지역까지 선택 가능합니다.', {
+          type: 'warning',
+          isLoading: false,
+          containerId: 'signUpProfileToastContainer',
+          autoClose: 1000,
+        });
+        return prev;
+      }
+
       return [...prev, `${region} ${district}`];
     });
 
@@ -58,12 +69,12 @@ export default function SignUpProfile1_2Template() {
       <Container.FlexCol>
         <SignUpProfileStepTitleTemplate step="1-2" title="내가 찾는 집은..." />
         <Typography.SubTitle1 className="text-brown">위치</Typography.SubTitle1>
-        <Container.FlexCol className="mb-[4.25rem] gap-y-9">
-          <Container.FlexRow className="mt-11 gap-x-2">
+        <Container.FlexCol className="mb-[3.75rem] gap-y-4">
+          <Container.FlexRow className="mt-7 flex-wrap gap-2">
             {regions?.map(location => (
               <BadgeButton.Fill
                 key={location}
-                className="gap-x-5 rounded-[1.875rem] px-4 py-[0.75rem] text-bg"
+                className="gap-x-3 rounded-[1.875rem] px-4 py-[0.75rem] text-bg tablet:gap-x-3 [&_p]:translate-y-[-0.0625rem]"
                 iconType="close"
                 stroke="bg"
                 onClick={() => onClickDeleteRegionBadge(location)}
@@ -79,7 +90,7 @@ export default function SignUpProfile1_2Template() {
           />
         </Container.FlexCol>
         <Container.FlexCol>
-          <Typography.SubTitle1 className="mb-11 text-brown">
+          <Typography.SubTitle1 className="mb-7 text-brown">
             기간
           </Typography.SubTitle1>
           <LabelDualInputRange
@@ -88,7 +99,7 @@ export default function SignUpProfile1_2Template() {
             max={24}
             step={1}
             setRangeValue={setTerm}
-            labelContainerStyle="mb-9"
+            labelContainerStyle="mb-6"
             rangeValue={term}
             category="term"
           />

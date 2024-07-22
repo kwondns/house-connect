@@ -6,8 +6,8 @@ import Typography from '@/components/atoms/Typography';
 
 export default function SignUpProfileOutroTemplate() {
   return (
-    <Container.FlexCol className="relative top-[-116px] size-full items-center justify-center gap-y-[68px]">
-      <Container.FlexCol className="items-center gap-y-[30px]">
+    <Container.FlexCol className="relative top-[-7.25rem] size-full items-center justify-center gap-y-[4.25rem]">
+      <Container.FlexCol className="items-center gap-y-[1.875rem]">
         <Container.FlexCol className="items-center gap-y-7">
           <Typography.Head2 className="text-brown">
             프로필 설정이 완료되었어요

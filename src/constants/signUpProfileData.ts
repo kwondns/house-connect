@@ -80,22 +80,27 @@ const houseTypeDisplayData: {
 const rentalTypeDisplayData: {
   displayValue: string;
   stateValue: SignUpProfileFormType['rental_type'];
+  iconType: IconType;
 }[] = [
   {
     displayValue: '월세',
     stateValue: 1,
+    iconType: 'monthly-rental-price',
   },
   {
     displayValue: '반전세',
     stateValue: 2,
+    iconType: 'semi-monthly-rental-price',
   },
   {
     displayValue: '전세',
     stateValue: 3,
+    iconType: 'year-rental-price',
   },
   {
     displayValue: '상관없음',
     stateValue: 0,
+    iconType: 'dont-mind-rental-price',
   },
 ];
 
@@ -163,22 +168,27 @@ const genderDisplayData: {
 const mateNumberDisplayData: {
   displayValue: string;
   stateValue: SignUpProfileFormType['mates_number'];
+  iconType: IconType;
 }[] = [
   {
     displayValue: '1명',
     stateValue: 1,
+    iconType: 'one-person',
   },
   {
     displayValue: '2명',
     stateValue: 2,
+    iconType: 'two-people',
   },
   {
-    displayValue: '3명',
+    displayValue: '3명 이상',
     stateValue: 3,
+    iconType: 'three-people',
   },
   {
     displayValue: '상관없어요',
     stateValue: 0,
+    iconType: 'dont-mind-people',
   },
 ];
 

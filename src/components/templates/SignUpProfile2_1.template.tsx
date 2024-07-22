@@ -33,11 +33,11 @@ export default function SignUpProfile2_1Template() {
         <Typography.SubTitle1 className="text-brown">
           흡연 여부
         </Typography.SubTitle1>
-        <Container.FlexRow className="mb-[4.25rem] mt-11 flex-wrap gap-6">
+        <Container.Grid className="mb-[3.75rem] mt-7 grid-cols-2 gap-6 screen640:grid-cols-4">
           {smokeDisplayData.map(({ displayValue, stateValue, iconType }) => (
             <IconButton.Outline
               key={displayValue}
-              className="basis-[11.25rem] gap-y-5 rounded-lg py-5"
+              className="gap-y-5 rounded-lg py-5"
               isActive={stateValue === smoking}
               iconType={iconType}
               direction="top"
@@ -52,15 +52,15 @@ export default function SignUpProfile2_1Template() {
             name="smoking"
             valueProp={smoking}
           />
-        </Container.FlexRow>
+        </Container.Grid>
         <Typography.SubTitle1 className="text-brown">
           반려 동물
         </Typography.SubTitle1>
-        <Container.FlexRow className="mt-11 flex-wrap gap-6">
+        <Container.Grid className="mt-7 grid-cols-2 gap-6 pb-2 screen640:grid-cols-4">
           {petDisplayData.map(({ displayValue, stateValue, iconType }) => (
             <IconButton.Outline
               key={displayValue}
-              className="basis-[11.25rem] gap-y-5 rounded-lg py-5"
+              className="gap-y-5 rounded-lg py-5"
               isActive={stateValue === pet}
               iconType={iconType}
               direction="top"
@@ -75,7 +75,7 @@ export default function SignUpProfile2_1Template() {
             name="pet"
             valueProp={pet}
           />
-        </Container.FlexRow>
+        </Container.Grid>
       </Container.FlexCol>
     </Container.FlexCol>
   );

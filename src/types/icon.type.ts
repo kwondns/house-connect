@@ -34,7 +34,15 @@ export type IconType =
   | 'camera'
   | 'prev'
   | 'next'
-  | 'back';
+  | 'back'
+  | 'monthly-rental-price'
+  | 'semi-monthly-rental-price'
+  | 'year-rental-price'
+  | 'dont-mind-rental-price'
+  | 'one-person'
+  | 'two-people'
+  | 'three-people'
+  | 'dont-mind-people' | 'done'
 
 export type CustomIconType = {
   fill?: ColorType;

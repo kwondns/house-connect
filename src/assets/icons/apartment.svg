@@ -1,47 +1,183 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 76 60" width="76" height="60" fill="none">
-  <path
-    fill="#643927"
-    d="M37.802 16.785a2 2 0 0 1 2-2h20.802a2 2 0 0 1 2 2v40.752a2 2 0 0 1-2 2H37.802V16.785Z"
-  />
-  <path
-    fill="url(#a)"
-    d="M37.802 16.785a2 2 0 0 1 2-2h20.802a2 2 0 0 1 2 2v40.752a2 2 0 0 1-2 2H37.802V16.785Z"
-  />
-  <path
-    fill="#643927"
-    d="M13 6a2 2 0 0 1 2-2h20.802a2 2 0 0 1 2 2v53.535H15a2 2 0 0 1-2-2V6Z"
-  />
-  <path
-    fill="url(#b)"
-    d="M13 6a2 2 0 0 1 2-2h20.802a2 2 0 0 1 2 2v53.535H15a2 2 0 0 1-2-2V6Z"
-  />
-  <path
-    fill="#E4CFC6"
-    d="M15.696 8.313h19.41v2.157h-19.41zM15.696 12.625h19.41v2.157h-19.41zM15.696 16.941h19.41v2.157h-19.41zM40.498 19.098h19.41v2.157h-19.41zM15.696 21.254h19.41v2.157h-19.41zM40.498 23.41h19.41v2.157h-19.41zM15.696 25.566h19.41v2.157h-19.41zM40.498 27.723h19.41v2.157h-19.41zM15.696 29.879h19.41v2.157h-19.41zM40.498 32.039h19.41v2.157h-19.41zM15.696 34.195h19.41v2.157h-19.41zM40.498 36.352h19.41v2.157h-19.41zM15.696 38.508h19.41v2.157h-19.41zM40.498 40.664h19.41v2.157h-19.41zM15.696 42.82h19.41v2.157h-19.41zM40.498 44.977h19.41v2.157h-19.41z"
-  />
+<svg
+  width="50"
+  height="56"
+  viewBox="0 0 50 56"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g id="apartment">
+    <path
+      id="Rectangle 347"
+      d="M24.8008 12.7852C24.8008 11.6806 25.6962 10.7852 26.8008 10.7852H47.6029C48.7075 10.7852 49.6029 11.6806 49.6029 12.7852V53.5368C49.6029 54.6414 48.7075 55.5368 47.6029 55.5368H24.8008V12.7852Z"
+      fill="#643927"
+    />
+    <path
+      id="Rectangle 365"
+      d="M24.8008 12.7852C24.8008 11.6806 25.6962 10.7852 26.8008 10.7852H47.6029C48.7075 10.7852 49.6029 11.6806 49.6029 12.7852V53.5368C49.6029 54.6414 48.7075 55.5368 47.6029 55.5368H24.8008V12.7852Z"
+      fill="url(#paint0_linear_3604_18686)"
+    />
+    <path
+      id="Rectangle 346"
+      d="M0 2C0 0.895432 0.895431 0 2 0H22.8021C23.9067 0 24.8021 0.895431 24.8021 2V55.5352H2C0.895429 55.5352 0 54.6397 0 53.5352V2Z"
+      fill="#643927"
+    />
+    <path
+      id="Rectangle 364"
+      d="M0 2C0 0.895432 0.895431 0 2 0H22.8021C23.9067 0 24.8021 0.895431 24.8021 2V55.5352H2C0.895429 55.5352 0 54.6397 0 53.5352V2Z"
+      fill="url(#paint1_linear_3604_18686)"
+    />
+    <rect
+      id="Rectangle 348"
+      x="2.69531"
+      y="4.3125"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 349"
+      x="2.69531"
+      y="8.625"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 350"
+      x="2.69531"
+      y="12.9414"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 357"
+      x="27.5"
+      y="15.0977"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 351"
+      x="2.69531"
+      y="17.2539"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 358"
+      x="27.4961"
+      y="19.4102"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 352"
+      x="2.69531"
+      y="21.5664"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 359"
+      x="27.5"
+      y="23.7227"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 353"
+      x="2.69531"
+      y="25.8789"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 360"
+      x="27.5"
+      y="28.0391"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 354"
+      x="2.69531"
+      y="30.1953"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 361"
+      x="27.5"
+      y="32.3516"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 355"
+      x="2.69531"
+      y="34.5078"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 362"
+      x="27.4961"
+      y="36.6641"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 356"
+      x="2.69531"
+      y="38.8203"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 363"
+      x="27.5"
+      y="40.9766"
+      width="19.4103"
+      height="2.15671"
+      fill="#E4CFC6"
+    />
+  </g>
   <defs>
     <linearGradient
-      id="a"
-      x1="50.203"
-      x2="50.203"
-      y1="14.785"
-      y2="59.537"
+      id="paint0_linear_3604_18686"
+      x1="37.2018"
+      y1="10.7852"
+      x2="37.2018"
+      y2="55.5368"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#FFBCA6" stop-opacity=".8" />
-      <stop offset=".51" stop-color="#D9D0C8" stop-opacity="0" />
+      <stop stop-color="#FFBCA6" stop-opacity="0.8" />
+      <stop offset="0.51" stop-color="#D9D0C8" stop-opacity="0" />
       <stop offset="1" stop-color="#C89C8F" />
     </linearGradient>
     <linearGradient
-      id="b"
-      x1="25.401"
-      x2="25.401"
-      y1="4"
-      y2="59.535"
+      id="paint1_linear_3604_18686"
+      x1="12.4011"
+      y1="0"
+      x2="12.4011"
+      y2="55.5352"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#FFBCA6" stop-opacity=".8" />
-      <stop offset=".51" stop-color="#D9D0C8" stop-opacity="0" />
+      <stop stop-color="#FFBCA6" stop-opacity="0.8" />
+      <stop offset="0.51" stop-color="#D9D0C8" stop-opacity="0" />
       <stop offset="1" stop-color="#C89C8F" />
     </linearGradient>
   </defs>

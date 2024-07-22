@@ -1,52 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 76 60" width="76" height="60" fill="none">
-  <g clip-path="url(#a)">
-    <path
-      fill="#643927"
-      d="M16 25.148a2 2 0 0 1 2-2h19.525a2 2 0 0 1 2 2v35.03H18a2 2 0 0 1-2-2v-33.03Z"
-    />
-    <path
-      fill="url(#b)"
-      d="M16 25.148a2 2 0 0 1 2-2h19.525a2 2 0 0 1 2 2v35.03H18a2 2 0 0 1-2-2v-33.03Z"
-    />
-    <path
-      fill="#643927"
-      d="M39.525 17.307a2 2 0 0 1 2-2h16.04a2 2 0 0 1 2 2v40.871a2 2 0 0 1-2 2h-18.04v-42.87Z"
-    />
-    <path
-      fill="url(#c)"
-      d="M39.525 17.309a2 2 0 0 1 2-2h16.04a2 2 0 0 1 2 2v40.87a2 2 0 0 1-2 2h-18.04V17.31Z"
-    />
-    <path fill="#643927" d="M39.089 14H60v2.178H39.089z" />
-    <path
+<svg
+  width="44"
+  height="46"
+  viewBox="0 0 44 46"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g id="villa-townhouse">
+    <g id="villa-townhouse-background">
+      <path
+        id="Rectangle 326"
+        d="M0 11.1484C0 10.0439 0.89543 9.14844 2 9.14844H21.5248C22.6293 9.14844 23.5248 10.0439 23.5248 11.1484V46.1781H2C0.895428 46.1781 0 45.2827 0 44.1781V11.1484Z"
+        fill="#643927"
+      />
+      <path
+        id="Rectangle 330"
+        d="M0 11.1484C0 10.0439 0.89543 9.14844 2 9.14844H21.5248C22.6293 9.14844 23.5248 10.0439 23.5248 11.1484V46.1781H2C0.895428 46.1781 0 45.2827 0 44.1781V11.1484Z"
+        fill="url(#paint0_linear_3604_18670)"
+      />
+      <path
+        id="Rectangle 327"
+        d="M23.5234 3.30664C23.5234 2.20207 24.4189 1.30664 25.5234 1.30664H41.563C42.6676 1.30664 43.563 2.20207 43.563 3.30664V44.1779C43.563 45.2825 42.6676 46.1779 41.563 46.1779H23.5234V3.30664Z"
+        fill="#643927"
+      />
+      <path
+        id="Rectangle 331"
+        d="M23.5234 3.30859C23.5234 2.20402 24.4189 1.30859 25.5234 1.30859H41.563C42.6676 1.30859 43.563 2.20402 43.563 3.30859V44.1799C43.563 45.2845 42.6676 46.1799 41.563 46.1799H23.5234V3.30859Z"
+        fill="url(#paint1_linear_3604_18670)"
+      />
+      <rect
+        id="Rectangle 329"
+        x="23.0898"
+        width="20.9109"
+        height="2.17822"
+        fill="#643927"
+      />
+    </g>
+    <rect
+      id="Rectangle 330_2"
+      x="3.05078"
+      y="15.2471"
+      width="8.71287"
+      height="5.66337"
       fill="#E4CFC6"
-      d="M19.05 29.248h8.713v5.663H19.05zM46.059 19.664h6.97v5.663h-6.97zM46.059 27.505h6.97v5.663h-6.97zM46.059 35.347h6.97v5.663h-6.97zM45.188 49.287h8.713v10.891h-8.713zM29.941 29.248h6.535v5.663h-6.535zM19.05 38.831h8.713v5.663H19.05zM29.941 38.831h6.535v5.663h-6.535z"
+    />
+    <rect
+      id="Rectangle 340"
+      x="30.0586"
+      y="5.66309"
+      width="6.9703"
+      height="5.66337"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 341"
+      x="30.0586"
+      y="13.5049"
+      width="6.9703"
+      height="5.66337"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 345"
+      x="30.0586"
+      y="21.3467"
+      width="6.9703"
+      height="5.66337"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 344"
+      x="29.1875"
+      y="35.2871"
+      width="8.71287"
+      height="10.8911"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 331_2"
+      x="13.9414"
+      y="15.2471"
+      width="6.53465"
+      height="5.66337"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 338"
+      x="3.05078"
+      y="24.832"
+      width="8.71287"
+      height="5.66337"
+      fill="#E4CFC6"
+    />
+    <rect
+      id="Rectangle 339"
+      x="13.9414"
+      y="24.832"
+      width="6.53465"
+      height="5.66337"
+      fill="#E4CFC6"
     />
   </g>
   <defs>
     <linearGradient
-      id="b"
-      x1="27.762"
-      x2="27.762"
-      y1="23.148"
-      y2="60.178"
+      id="paint0_linear_3604_18670"
+      x1="11.7624"
+      y1="9.14844"
+      x2="11.7624"
+      y2="46.1781"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#FFBCA6" stop-opacity=".8" />
-      <stop offset=".51" stop-color="#D9D0C8" stop-opacity="0" />
+      <stop stop-color="#FFBCA6" stop-opacity="0.8" />
+      <stop offset="0.51" stop-color="#D9D0C8" stop-opacity="0" />
       <stop offset="1" stop-color="#C89C8F" />
     </linearGradient>
     <linearGradient
-      id="c"
-      x1="49.545"
-      x2="49.545"
-      y1="15.309"
-      y2="60.18"
+      id="paint1_linear_3604_18670"
+      x1="33.5432"
+      y1="1.30859"
+      x2="33.5432"
+      y2="46.1799"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#FFBCA6" stop-opacity=".8" />
-      <stop offset=".51" stop-color="#D9D0C8" stop-opacity="0" />
+      <stop stop-color="#FFBCA6" stop-opacity="0.8" />
+      <stop offset="0.51" stop-color="#D9D0C8" stop-opacity="0" />
       <stop offset="1" stop-color="#C89C8F" />
     </linearGradient>
-    <clipPath id="a"><path fill="#fff" d="M0 0h76v60H0z" /></clipPath>
   </defs>
 </svg>

@@ -29,7 +29,7 @@ export default function SignUpProfile() {
   const signUpProfileState = useRecoilValue(SignUpProfileState);
   const { mutate, isPending } = useSignUpProfile();
   const formMethods = useForm<SignUpProfileFormType>({
-    mode: 'onSubmit',
+    mode: 'onChange',
     defaultValues: {
       type: undefined,
       rental_type: undefined,

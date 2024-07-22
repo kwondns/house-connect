@@ -7,6 +7,8 @@
     font-family: 'Myanmar Khyay';
       src: url('/src/assets/fonts/Khyay-Regular.ttf');
   }
+  @media screen {
+  }
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -27,8 +29,15 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+html {
+  font-size: 13px;
+  @screen tablet {
+    font-size: 16px;
+  }
+}
+
 body {
   /* Myanmar Khyay 에 없는 폰트(한글)이 사용되면 자동으로 다음 폰트 Noto로 적용 */
   font-family: 'Myanmar Khyay', 'Noto Sans KR', sans-serif;
-  background-color: #fffaf5;
+  background-color: #ffffff;
 }

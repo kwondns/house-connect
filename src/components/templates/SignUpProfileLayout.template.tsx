@@ -9,7 +9,6 @@ import Typography from '@/components/atoms/Typography';
 import Carousel from '@/components/organisms/Carousel';
 import StepNavLinks from '@/components/molecules/StepNavLinks';
 import cn from '@/libs/cn';
-import Button from '@/components/atoms/Button';
 import {
   signUpProfileValidationConfig,
   stepDisplayData,
@@ -33,7 +32,7 @@ function StepTitle({ num, title, isActive }: StepTitleType) {
           isActive ? 'bg-brown' : 'bg-brown2',
         )}
       >
-        <span className="translate-x-[1px] translate-y-[-1px] text-lg font-semibold text-bg">
+        <span className="translate-x-[0.0625rem] translate-y-[-0.0625rem] text-lg font-semibold text-bg">
           {num}
         </span>
       </div>
@@ -143,63 +142,76 @@ export default function SignUpProfileLayoutTemplate(
     passedPage.includes(step) ? setCurrentStep(step) : null;
 
   return (
-    <Container.FlexRow className="min-h-[51rem] w-full justify-between gap-[3.75rem]">
-      <Container.FlexCol className="min-w-[13rem] screen1140:hidden">
-        {stepDisplayData.map(({ stepTitle, stepNum, stepContents }) => (
-          <Container.FlexCol key={stepTitle} className="mb-12">
-            <StepTitle
-              num={stepNum}
-              isActive={stepContents.some(
-                content => content.carouselCurrentStep === currentStep,
-              )}
-              title={stepTitle}
-            />
-            <StepNavLinks
-              className="pl-[14px]"
-              contents={stepContents.map(stepContent => ({
-                ...stepContent,
-                isActive: currentStep === stepContent.carouselCurrentStep,
-                onClick: () =>
-                  onClickstepNavLinkValidate(
-                    stepContent.carouselCurrentStep as ValidationStep,
-                  ),
-              }))}
-            />
-          </Container.FlexCol>
-        ))}
-      </Container.FlexCol>
-      <Container.FlexCol className="w-full max-w-[55.875rem]">
-        <Carousel order={currentStep}>{children}</Carousel>
-        <Container.FlexRow className="mt-[6.25rem] justify-end gap-x-3 pb-[76px]">
-          <IconButton.Outline
-            className="flex-row-reverse gap-x-[10px] rounded-[32px] px-[30px] py-[15px]"
-            iconType="left-arrow"
+    // ! 9.25rem은 prev, next button section의 높이 값
+    <>
+      <Container.FlexRow className="w-full justify-between gap-[3.75rem]">
+        <Container.FlexCol className="hidden h-[calc(100vh-9.25rem)] min-h-[31rem] min-w-[13rem] overflow-y-scroll pb-[10rem] lg:block">
+          {stepDisplayData.map(({ stepTitle, stepNum, stepContents }) => (
+            <Container.FlexCol key={stepTitle} className="mb-12">
+              <StepTitle
+                num={stepNum}
+                isActive={stepContents.some(
+                  content => content.carouselCurrentStep === currentStep,
+                )}
+                title={stepTitle}
+              />
+              <StepNavLinks
+                className="pl-[0.875rem]"
+                contents={stepContents.map(stepContent => ({
+                  ...stepContent,
+                  isActive: currentStep === stepContent.carouselCurrentStep,
+                  onClick: () =>
+                    onClickstepNavLinkValidate(
+                      stepContent.carouselCurrentStep as ValidationStep,
+                    ),
+                }))}
+              />
+            </Container.FlexCol>
+          ))}
+        </Container.FlexCol>
+        <Container.FlexCol className="size-full h-[calc(100vh-9.25rem)] pb-[10rem]">
+          <Carousel order={currentStep}>{children}</Carousel>
+        </Container.FlexCol>
+      </Container.FlexRow>
+      <Container.FlexRow className="absolute bottom-0 right-0 z-20 w-full justify-end gap-x-3 bg-bg pb-[3.75rem] pr-8 pt-8">
+        <IconButton.Outline
+          className="flex size-[3rem] flex-row-reverse items-center justify-center gap-x-[0.625rem] rounded-[2rem] tablet:h-14 tablet:w-36"
+          iconType="left-arrow"
+          disabled={isSubmitted}
+          onClick={onClickPrevButton}
+        >
+          <Typography.P1 className="hidden text-brown tablet:block">
+            이전
+          </Typography.P1>
+        </IconButton.Outline>
+        {isLastOfCarousel ? (
+          <IconButton.Fill
+            key="signUpProfileSubmitButton"
+            className="flex size-[3rem] items-center justify-center gap-x-[0.625rem] rounded-[2rem] tablet:h-14 tablet:w-36"
+            iconType="done"
+            stroke="bg"
+            type="submit"
             disabled={isSubmitted}
-            onClick={onClickPrevButton}
           >
-            <Typography.P1 className="text-brown">이전</Typography.P1>
-          </IconButton.Outline>
-          {isLastOfCarousel ? (
-            <Button.Fill
-              className="gap-x-[10px] rounded-[32px] px-12 py-[15px]"
-              type="submit"
-              disabled={isSubmitted}
-            >
-              <Typography.P1 className="text-bg">완료</Typography.P1>
-            </Button.Fill>
-          ) : (
-            <IconButton.Fill
-              className="gap-x-[10px] rounded-[32px] px-[30px] py-[15px]"
-              iconType="right-arrow"
-              stroke="bg"
-              onClick={onClickNextButton}
-              type="button"
-            >
-              <Typography.P1 className="text-bg">다음</Typography.P1>
-            </IconButton.Fill>
-          )}
-        </Container.FlexRow>
-      </Container.FlexCol>
-    </Container.FlexRow>
+            <Typography.P1 className="hidden text-bg tablet:block">
+              완료
+            </Typography.P1>
+          </IconButton.Fill>
+        ) : (
+          <IconButton.Fill
+            key="signUpProfileNextButton"
+            className="flex size-[3rem] items-center justify-center gap-x-[0.625rem] rounded-[2rem] tablet:h-14 tablet:w-36"
+            iconType="right-arrow"
+            stroke="bg"
+            onClick={onClickNextButton}
+            type="button"
+          >
+            <Typography.P1 className="hidden text-bg tablet:block">
+              다음
+            </Typography.P1>
+          </IconButton.Fill>
+        )}
+      </Container.FlexRow>
+    </>
   );
 }

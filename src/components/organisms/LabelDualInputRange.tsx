@@ -40,11 +40,11 @@ export default function LabelDualInputRange(props: LabelDualInputRangeProps) {
         className={cn('mb-7 justify-between', labelContainerStyle)}
       >
         {label && (
-          <Typography.SubTitle2 className="text-brown">
+          <Typography.SubTitle2 className="font-medium text-brown">
             {label}
           </Typography.SubTitle2>
         )}
-        <Typography.SubTitle2 className="text-brown">
+        <Typography.SubTitle2 className="font-medium text-brown">
           {rangeMinValue === rangeMaxValue
             ? rangeMinValue
             : `${rangeMinValue} ~ ${rangeMaxValue}`}

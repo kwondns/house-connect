@@ -36,11 +36,11 @@ export default function SignUpProfile3_1Template() {
           title="내가 원하는 룸메이트는..."
         />
         <Typography.SubTitle1 className="text-brown">성별</Typography.SubTitle1>
-        <Container.FlexRow className="mb-[4.25rem] mt-11 flex-wrap gap-6">
+        <Container.Grid className="mb-[3.75rem] mt-7 grid-cols-2 gap-6 screen640:grid-cols-4">
           {genderDisplayData.map(({ displayValue, stateValue, iconType }) => (
             <IconButton.Outline
               key={displayValue}
-              className="basis-[11.25rem] gap-y-5 rounded-lg py-5"
+              className="gap-y-5 rounded-lg py-5"
               isActive={stateValue === gender}
               iconType={iconType}
               direction="top"
@@ -55,15 +55,31 @@ export default function SignUpProfile3_1Template() {
             name="gender"
             valueProp={gender}
           />
-        </Container.FlexRow>
+        </Container.Grid>
         <Typography.SubTitle1 className="text-brown">
           인원 수
         </Typography.SubTitle1>
-        <Container.FlexRow className="mt-11 flex-wrap gap-6">
-          {mateNumberDisplayData.map(({ displayValue, stateValue }) => (
+        <Container.Grid className="mt-7 grid-cols-2 gap-6 screen640:grid-cols-4">
+          {mateNumberDisplayData.map(
+            ({ displayValue, stateValue, iconType }) => (
+              <IconButton.Outline
+                key={displayValue}
+                className="gap-y-5 rounded-lg py-5"
+                isActive={stateValue === matesNumber}
+                iconType={iconType}
+                direction="top"
+                onClick={() => onClickMateNumberType(stateValue)}
+              >
+                <Typography.P2 className="text-brown">
+                  {displayValue}
+                </Typography.P2>
+              </IconButton.Outline>
+            ),
+          )}
+          {/* {mateNumberDisplayData.map(({ displayValue, stateValue }) => (
             <Button.Outline
               key={displayValue}
-              className="basis-[11.25rem] gap-y-5 rounded-lg py-5"
+              className="gap-y-5 rounded-lg py-5"
               isActive={stateValue === matesNumber}
               onClick={() => onClickMateNumberType(stateValue)}
             >
@@ -71,12 +87,12 @@ export default function SignUpProfile3_1Template() {
                 {displayValue}
               </Typography.P2>
             </Button.Outline>
-          ))}
+          ))} */}
           <FormItem.Hidden<Pick<SignUpProfileFormType, 'mates_number'>>
             name="mates_number"
             valueProp={matesNumber}
           />
-        </Container.FlexRow>
+        </Container.Grid>
       </Container.FlexCol>
     </Container.FlexCol>
   );

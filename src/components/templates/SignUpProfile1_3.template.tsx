@@ -26,13 +26,14 @@ export default function SignUpProfile1_3Template() {
           </Typography.SubTitle1>
           <LabelDualInputRange
             label="보증금"
-            className="mt-[3.25rem] max-w-[30rem]"
+            className="mt-12 max-w-[30rem]"
             min={0}
             max={10000}
             step={100}
             setRangeValue={setDepositPrice}
             rangeValue={depositPrice}
             category="price"
+            labelContainerStyle="mb-6"
           />
           <FormItem.Hidden<Pick<SignUpProfileFormType, 'deposit_price'>>
             name="deposit_price"
@@ -40,13 +41,14 @@ export default function SignUpProfile1_3Template() {
           />
           <LabelDualInputRange
             label="월세"
-            className="mt-[4.25rem] max-w-[30rem]"
+            className="mt-[3.75rem] max-w-[30rem]"
             min={0}
             max={500}
             step={10}
             setRangeValue={setMonthlyPrice}
             rangeValue={monthlyPrice}
             category="price"
+            labelContainerStyle="mb-6"
           />
           <FormItem.Hidden<Pick<SignUpProfileFormType, 'monthly_rental_price'>>
             name="monthly_rental_price"
