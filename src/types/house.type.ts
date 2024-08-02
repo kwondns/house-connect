@@ -35,14 +35,6 @@ export const HouseForm = z.object({
     required_error: '공유 주거의 넓이를 평 단위로 입력해주세요.',
   }),
   room_num: z.number(),
-  /**
-   * ### 층 옵션
-   * - 0: 지하
-   * - 1: 반지하
-   * - 2: 지상
-   * - undefined: 지정되지 않음(초기값)
-   */
-  floor: z.union([z.literal(0), z.literal(1), z.literal(2)]).optional(),
   deposit_price: z.number({
     required_error: '보증금을 만원 단위로 입력해주세요.',
   }),
