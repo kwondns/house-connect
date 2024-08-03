@@ -70,7 +70,7 @@ export const useUpdateBookMark = () => {
   return { updateBookMark, isPending };
 };
 
-export const useHouseDetail = (houseId: string | undefined) =>
+export const houseDetailQuery = (houseId: string | undefined) =>
   queryOptions({
     queryKey: ['house', 'detail', houseId],
     queryFn: async () =>
