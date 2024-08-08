@@ -9,6 +9,7 @@ import Female from '@/assets/icons/female.svg?react';
 import GoogleLogo from '@/assets/icons/google-logo.svg?react';
 import Invisible from '@/assets/icons/invisible.svg?react';
 import KakaotalkLogo from '@/assets/icons/kakaotalk-logo.svg?react';
+import KakaotalkLogoText from '@/assets/icons/kakaotalk-logo-text.svg?react';
 import LeftArrowLogo from '@/assets/icons/left-arrow.svg?react';
 import Logo from '@/assets/icons/logo.svg?react';
 import Male from '@/assets/icons/male.svg?react';
@@ -27,12 +28,23 @@ import Visible from '@/assets/icons/visible.svg?react';
 import AlarmExist from '@/assets/icons/alarm-exist.svg?react';
 import AlarmNone from '@/assets/icons/alarm-none.svg?react';
 import Avatar from '@/assets/icons/avatar.svg?react';
+import Back from '@/assets/icons/back.svg?react';
+import Heart from '@/assets/icons/heart.svg?react';
+import FillHeart from '@/assets/icons/fill-heart.svg?react';
+import Share from '@/assets/icons/share.svg?react';
+import MiniSmoke from '@/assets/icons/mini-smoke.svg?react';
+import MiniNoneSmoke from '@/assets/icons/mini-none-smoke.svg?react';
+import IconMale from '@/assets/icons/mini-male-icon.svg?react';
+import IconFemale from '@/assets/icons/mini-female-icon.svg?react';
+import IconGenderFree from '@/assets/icons/ph_gender-intersex.svg?react';
+import PetHeart from '@/assets/icons/mini-pet-lover.svg?react';
+import PetHate from '@/assets/icons/mini-none-pet-lover.svg?react';
+import PetCircle from '@/assets/icons/mini-dont-mind-pet.svg?react';
 import PaperClip from '@/assets/icons/paper-clip.svg?react';
 import Send from '@/assets/icons/send.svg?react';
 import Camera from '@/assets/icons/camera.svg?react';
 import Next from '@/assets/icons/next.svg?react';
 import Prev from '@/assets/icons/prev.svg?react';
-import Back from '@/assets/icons/back.svg?react';
 import MonthlyRentalPrice from '@/assets/icons/monthly-rental-price.svg?react';
 import SemiMonthlyRentalPrice from '@/assets/icons/semi-monthly-rental-price.svg?react';
 import YearRentalPrice from '@/assets/icons/year-rental-price.svg?react';
@@ -42,6 +54,13 @@ import TwoPeople from '@/assets/icons/two-people.svg?react';
 import ThreePeople from '@/assets/icons/three-people.svg?react';
 import DontMindPeople from '@/assets/icons/dont-mind-people.svg?react';
 import Done from '@/assets/icons/done.svg?react';
+import MiniHeart from '@/assets/icons/mini-heart.svg?react';
+import PagePrev from '@/assets/icons/page-prev.svg?react';
+import PageNext from '@/assets/icons/page-next.svg?react';
+import Search from '@/assets/icons/search.svg?react';
+import Edit from '@/assets/icons/edit.svg?react';
+import Delete from '@/assets/icons/delete.svg?react';
+import EditAvatar from '@/assets/icons/edit_avatar.svg?react';
 import { IconType } from '@/types/icon.type';
 import cn from '@/libs/cn';
 
@@ -152,14 +171,14 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
     />
   ),
   'google-logo': ({ className, ...others }) => (
-    <GoogleLogo
-      className={cn('w-[30.625rem] h-[3.5rem]', className)}
-      {...others}
-    />
+    <GoogleLogo className={cn('size-[1.1875rem]', className)} {...others} />
   ),
   'kakaotalk-logo': ({ className, ...others }) => (
-    <KakaotalkLogo
-      className={cn('w-[30.625rem] h-[3.5rem]', className)}
+    <KakaotalkLogo className={cn('size-[1.125rem]', className)} {...others} />
+  ),
+  'kakaotalk-logo-text': ({ className, ...others }) => (
+    <KakaotalkLogoText
+      className={cn('w-[1.3125rem] h-[1.1875rem]', className)}
       {...others}
     />
   ),
@@ -271,6 +290,75 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
       className={cn('w-[1.0625rem] h-[0.8125rem]', className)}
       {...others}
     />
+  ),
+  'mini-heart': ({ className, ...others }) => (
+    <MiniHeart className={cn('w-[1.3025rem] h-6', className)} {...others} />
+  ),
+  'page-prev': ({ className, ...others }) => (
+    <PagePrev className={cn('size-[1.2rem]', className)} {...others} />
+  ),
+  'page-next': ({ className, ...others }) => (
+    <PageNext className={cn('size-[1.2rem]', className)} {...others} />
+  ),
+  search: ({ className, ...others }) => (
+    <Search className={cn('size-6', className)} {...others} />
+  ),
+  heart: ({ className, ...others }) => (
+    <Heart
+      className={cn('w-[2.6875rem] h-[2.3125rem]', className)}
+      {...others}
+    />
+  ),
+  'fill-heart': ({ className, ...others }) => (
+    <FillHeart
+      className={cn('w-[2.6875rem] h-[2.3125rem]', className)}
+      {...others}
+    />
+  ),
+  share: ({ className, ...others }) => (
+    <Share className={cn('w-[1.8125rem] h-[2.25rem]', className)} {...others} />
+  ),
+  'mini-smoke': ({ className, ...others }) => (
+    <MiniSmoke
+      className={cn('w-[2.3125rem] h-[2.0625rem]', className)}
+      {...others}
+    />
+  ),
+  'mini-none-smoke': ({ className, ...others }) => (
+    <MiniNoneSmoke
+      className={cn('w-[1.5rem] h-[1.5rem]', className)}
+      {...others}
+    />
+  ),
+  'icon-male': ({ className, ...others }) => (
+    <IconMale className={cn('size-6', className)} {...others} />
+  ),
+  'icon-female': ({ className, ...others }) => (
+    <IconFemale className={cn('size-6', className)} {...others} />
+  ),
+  'icon-gender-free': ({ className, ...others }) => (
+    <IconGenderFree className={cn('size-6', className)} {...others} />
+  ),
+  'pet-heart': ({ className, ...others }) => (
+    <PetHeart
+      className={cn('w-[1.125rem] h-[0.958125rem]', className)}
+      {...others}
+    />
+  ),
+  'pet-hate': ({ className, ...others }) => (
+    <PetHate className={cn('size-[1.125rem]', className)} {...others} />
+  ),
+  'pet-circle': ({ className, ...others }) => (
+    <PetCircle className={cn('size-[1.125rem]', className)} {...others} />
+  ),
+  edit: ({ className, ...others }) => (
+    <Edit className={cn('size-[17px]', className)} {...others} />
+  ),
+  delete: ({ className, ...others }) => (
+    <Delete className={cn('size-[24px]', className)} {...others} />
+  ),
+  'edit-avatar': ({ className, ...others }) => (
+    <EditAvatar className={cn('w-6 h-[1.375rem]', className)} {...others} />
   ),
 };
 

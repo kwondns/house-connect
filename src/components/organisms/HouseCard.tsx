@@ -1,3 +1,5 @@
+import { useQueryClient } from '@tanstack/react-query';
+
 import Link from '@/components/atoms/Link';
 import Container from '@/components/atoms/Container';
 import Img from '@/components/atoms/Img';
@@ -6,10 +8,12 @@ import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
 import { houseTypesInfo, rentalTypesInfo } from '@/constants/profileDetailInfo';
 import { HouseCardType } from '@/types/house.type';
+import { houseDetailQuery } from '@/hooks/useHouseDetail';
 
 type HouseCardProps = HouseCardType;
 
 export default function HouseCard(props: HouseCardProps) {
+  const queryClient = useQueryClient();
   const {
     id,
     region,
@@ -23,7 +27,15 @@ export default function HouseCard(props: HouseCardProps) {
     deposit_price,
   } = props;
   return (
-    <Link to={`/house-detail/${id}`}>
+    <Link
+      to={`/house/${id}`}
+      onMouseEnter={() =>
+        queryClient.prefetchQuery({
+          ...houseDetailQuery(id),
+          staleTime: 1000 * 60 * 999,
+        })
+      }
+    >
       <Container className="relative h-[17.8125rem] w-80 rounded-xl shadow-[0_4px_12px_0_rgba(0,0,0,12%)]">
         <Img className="h-[12.5rem] rounded-b-none" src={representative_img} />
         <Container.FlexRow className="absolute inset-x-0 top-0 items-start p-4">
