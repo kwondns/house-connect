@@ -61,7 +61,10 @@ export type IconType =
   | 'fill-heart'
   | 'edit'
   | 'delete'
-  | 'edit-avatar';
+  | 'edit-avatar'
+  | 'down-arrow'
+  | 'filter'
+  | 'add';
 
 export type CustomIconType = {
   fill?: ColorType;
