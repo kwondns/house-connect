@@ -18,6 +18,7 @@ export default function HouseCard(props: HouseCardProps) {
   const {
     size,
     id,
+    user_id,
     region,
     district,
     house_type,
@@ -42,7 +43,10 @@ export default function HouseCard(props: HouseCardProps) {
       <Container
         className={`relative w-80 rounded-xl bg-white shadow-[0_4px_12px_0_rgba(0,0,0,12%)] ${size}`}
       >
-        <Img className="h-[12.5rem] rounded-b-none" src={representative_img} />
+        <Img
+          className="h-[12.5rem] rounded-b-none"
+          src={`${import.meta.env.VITE_SUPABASE_HOUSE_STORAGE_URL}/${user_id}/${id}/${representative_img}`}
+        />
         <Container.FlexRow className="absolute inset-x-0 top-0 items-start p-4">
           <Container.FlexRow className="flex-1 flex-wrap gap-1 [&>div]:rounded-[1.5625rem] [&>div]:px-[0.625rem] [&>div]:py-[0.375rem]">
             {house_appeal.map(appeal => (

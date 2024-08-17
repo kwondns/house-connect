@@ -99,4 +99,7 @@ const HouseCard = HouseForm.pick({
   term: true,
 }).required();
 
-export type HouseCardType = z.infer<typeof HouseCard> & { id: string };
+export type HouseCardType = z.infer<typeof HouseCard> & {
+  id: string;
+  user_id: string;
+};
