@@ -88,4 +88,4 @@ export const mateNumInfo = {
     icon: 'three-people',
     text: '3명이상',
   },
-};
+} as const;
