@@ -17,6 +17,7 @@ import {
   rentalTypesInfo,
 } from '@/constants/profileDetailInfo';
 import unitConverters from '@/libs/generateUnit';
+import Link from '@/components/atoms/Link';
 
 type HouseListTemplateProps = {
   house: PostgrestSingleResponse<HouseCardType[]>[];
@@ -131,15 +132,17 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
               필터
             </Typography.P3>
           </IconButton.Ghost>
-          <IconButton.Ghost
-            iconType="add"
-            direction="left"
-            className="rounded-[1.875rem] bg-white px-[1.5625rem] py-2.5 shadow-[0_3px_8px_0_rgba(0,0,0,16%)]"
-          >
-            <Typography.P3 className="pl-3 leading-150 text-brown">
-              하우스 등록
-            </Typography.P3>
-          </IconButton.Ghost>
+          <Link to="/house/regist">
+            <IconButton.Ghost
+              iconType="add"
+              direction="left"
+              className="rounded-[1.875rem] bg-white px-[1.5625rem] py-2.5 shadow-[0_3px_8px_0_rgba(0,0,0,16%)]"
+            >
+              <Typography.P3 className="pl-3 leading-150 text-brown">
+                하우스 등록
+              </Typography.P3>
+            </IconButton.Ghost>
+          </Link>
         </Container.FlexRow>
         <Container.FlexRow className="flex-wrap gap-2 px-16 [&>button]:h-10 [&>button]:gap-x-4 [&>button]:rounded-[1.875rem] [&>button]:bg-white [&>button]:px-5">
           {Object.prototype.hasOwnProperty.call(tempFilter, 'house_type') && (
