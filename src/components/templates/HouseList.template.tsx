@@ -18,6 +18,8 @@ import {
 } from '@/constants/profileDetailInfo';
 import unitConverters from '@/libs/generateUnit';
 import Link from '@/components/atoms/Link';
+import useModal from '@/hooks/useModal';
+import { HouseListFilterState } from '@/types/modal.type';
 
 type HouseListTemplateProps = {
   house: PostgrestSingleResponse<HouseCardType[]>[];
@@ -28,6 +30,12 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
   const { house, fetchNextPage, hasNextPage } = props;
   const lastRef = useRef<HTMLDivElement>(null);
   const isShow = useObserver(lastRef);
+  const { setModalState: setHouseListFilterModal } =
+    useModal('HouseListFilter');
+  const HouseListFilterContext: HouseListFilterState = {
+    isOpen: true,
+    type: 'HouseListFilter',
+  };
   useEffect(() => {
     (async () => {
       if (isShow && hasNextPage) await fetchNextPage();
@@ -127,6 +135,7 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
             iconType="filter"
             direction="left"
             className="rounded-[1.875rem] !bg-[#FF5F3C] px-[1.5625rem] py-2.5 shadow-[0_3px_8px_0_rgba(0,0,0,16%)]"
+            onClick={() => setHouseListFilterModal(HouseListFilterContext)}
           >
             <Typography.P3 className="pl-3 leading-150 text-white">
               필터
