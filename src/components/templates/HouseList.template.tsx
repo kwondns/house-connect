@@ -2,6 +2,7 @@ import { UseSuspenseInfiniteQueryResult } from '@tanstack/react-query';
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
 import { useEffect, useRef } from 'react';
 import { HashLink } from 'react-router-hash-link';
+import { useRecoilValue } from 'recoil';
 
 import { HouseCardType } from '@/types/house.type';
 import HouseCard from '@/components/organisms/HouseCard';
@@ -20,6 +21,7 @@ import unitConverters from '@/libs/generateUnit';
 import Link from '@/components/atoms/Link';
 import useModal from '@/hooks/useModal';
 import { HouseListFilterState } from '@/types/modal.type';
+import HouseListFilterAtomState from '@/stores/houseList.store';
 
 type HouseListTemplateProps = {
   house: PostgrestSingleResponse<HouseCardType[]>[];
@@ -36,69 +38,51 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
     isOpen: true,
     type: 'HouseListFilter',
   };
+  const filterValue = useRecoilValue(HouseListFilterAtomState);
   useEffect(() => {
     (async () => {
       if (isShow && hasNextPage) await fetchNextPage();
     })();
   }, [isShow, hasNextPage, lastRef.current]);
 
-  const tempFilter: {
-    house_type?: keyof typeof houseTypesInfo;
-    rental_type?: keyof typeof rentalTypesInfo;
-    regions?: string[];
-    term?: [number, number];
-    deposit_price?: [number, number];
-    monthly_price?: [number, number];
-    mate_number?: keyof typeof mateNumInfo;
-    mate_gender?: keyof typeof genderInfo;
-  } = {
-    house_type: 0,
-    rental_type: 1,
-    regions: ['경기 고양시'],
-    term: [6, 12],
-    deposit_price: [1000, 2000],
-    monthly_price: [50, 90],
-    mate_number: 1,
-    mate_gender: 1,
-  };
   let termDisplay = '';
-  if (tempFilter.term) {
-    const rangeMinValue = unitConverters.term(tempFilter.term[0], 25);
-    const rangeMaxValue = unitConverters.term(tempFilter.term[1], 25);
-    termDisplay =
-      rangeMinValue === rangeMaxValue
-        ? rangeMinValue
-        : `${rangeMinValue} ~ ${rangeMaxValue}`;
+  if (filterValue.term) {
+    const rangeMinValue = unitConverters.term(filterValue.term[0], 25);
+    const rangeMaxValue = unitConverters.term(filterValue.term[1], 25);
+    if (rangeMinValue === rangeMaxValue) termDisplay = rangeMinValue;
+    else if (rangeMaxValue === '2년 1개월')
+      termDisplay = `${rangeMinValue} 이상`;
+    else termDisplay = `${rangeMinValue} ~ ${rangeMaxValue}`;
   }
   let depositDisplay = '';
-  if (tempFilter.deposit_price) {
+  if (filterValue.deposit_price) {
     const rangeMinValue = unitConverters.price(
-      tempFilter.deposit_price[0],
-      10001,
+      filterValue.deposit_price[0],
+      10100,
     );
     const rangeMaxValue = unitConverters.price(
-      tempFilter.deposit_price[1],
-      10001,
+      filterValue.deposit_price[1],
+      10100,
     );
-    depositDisplay =
-      rangeMinValue === rangeMaxValue
-        ? rangeMinValue
-        : `${rangeMinValue} ~ ${rangeMaxValue}`;
+    if (rangeMinValue === rangeMaxValue) depositDisplay = rangeMinValue;
+    else if (rangeMaxValue === '1억 100만원')
+      depositDisplay = `${rangeMinValue} 이상`;
+    else depositDisplay = `${rangeMinValue} ~ ${rangeMaxValue}`;
   }
   let monthlyDisplay = '';
-  if (tempFilter.monthly_price) {
+  if (filterValue.monthly_rental_price) {
     const rangeMinValue = unitConverters.price(
-      tempFilter.monthly_price[0],
-      10001,
+      filterValue.monthly_rental_price[0],
+      510,
     );
     const rangeMaxValue = unitConverters.price(
-      tempFilter.monthly_price[1],
-      10001,
+      filterValue.monthly_rental_price[1],
+      510,
     );
-    monthlyDisplay =
-      rangeMinValue === rangeMaxValue
-        ? rangeMinValue
-        : `${rangeMinValue} ~ ${rangeMaxValue}`;
+    if (rangeMinValue === rangeMaxValue) monthlyDisplay = rangeMinValue;
+    else if (rangeMaxValue === ' 510만원')
+      monthlyDisplay = `${rangeMinValue} 이상`;
+    else monthlyDisplay = `${rangeMinValue} ~ ${rangeMaxValue}`;
   }
 
   return (
@@ -154,96 +138,99 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
           </Link>
         </Container.FlexRow>
         <Container.FlexRow className="flex-wrap gap-2 px-16 [&>button]:h-10 [&>button]:gap-x-4 [&>button]:rounded-[1.875rem] [&>button]:bg-white [&>button]:px-5">
-          {Object.prototype.hasOwnProperty.call(tempFilter, 'house_type') && (
+          {filterValue.house_type && (
             <IconButton.Ghost iconType="close">
               <Typography.P3 className="text-brown">
                 {
                   houseTypesInfo[
-                    tempFilter.house_type as keyof typeof houseTypesInfo
+                    filterValue.house_type as keyof typeof houseTypesInfo
                   ].text
                 }
               </Typography.P3>
             </IconButton.Ghost>
           )}
-          {Object.prototype.hasOwnProperty.call(tempFilter, 'rental_type') && (
+          {filterValue.rental_type && (
             <IconButton.Ghost iconType="close">
               <Typography.P3 className="text-brown">
                 {
                   rentalTypesInfo[
-                    tempFilter.rental_type as keyof typeof rentalTypesInfo
+                    filterValue.rental_type as keyof typeof rentalTypesInfo
                   ]
                 }
               </Typography.P3>
             </IconButton.Ghost>
           )}
-          {Object.prototype.hasOwnProperty.call(tempFilter, 'regions') &&
-            tempFilter.regions?.map(region => (
+          {filterValue.regions &&
+            filterValue.regions?.map(region => (
               <IconButton.Ghost key={region} iconType="close">
                 <Typography.P3 className="text-brown">{region}</Typography.P3>
               </IconButton.Ghost>
             ))}
-          {Object.prototype.hasOwnProperty.call(tempFilter, 'term') && (
-            <IconButton.Ghost iconType="close">
-              <Typography.P3 className="text-brown">
-                {termDisplay}
-              </Typography.P3>
-            </IconButton.Ghost>
-          )}
-          {Object.prototype.hasOwnProperty.call(
-            tempFilter,
-            'deposit_price',
-          ) && (
-            <IconButton.Ghost iconType="close">
-              <Typography.P3 className="text-brown">
-                {depositDisplay}
-              </Typography.P3>
-            </IconButton.Ghost>
-          )}
-          {Object.prototype.hasOwnProperty.call(
-            tempFilter,
-            'monthly_price',
-          ) && (
-            <IconButton.Ghost iconType="close">
-              <Typography.P3 className="text-brown">
-                {monthlyDisplay}
-              </Typography.P3>
-            </IconButton.Ghost>
-          )}
+          {filterValue.term &&
+            (filterValue.term[0] !== 0 || filterValue.term[1] !== 25) && (
+              <IconButton.Ghost iconType="close">
+                <Typography.P3 className="text-brown">
+                  {termDisplay}
+                </Typography.P3>
+              </IconButton.Ghost>
+            )}
+          {filterValue.deposit_price &&
+            (filterValue.deposit_price[0] !== 0 ||
+              filterValue.deposit_price[1] !== 10100) && (
+              <IconButton.Ghost iconType="close">
+                <Typography.P3 className="text-brown">
+                  {depositDisplay}
+                </Typography.P3>
+              </IconButton.Ghost>
+            )}
+          {filterValue.monthly_rental_price &&
+            (filterValue.monthly_rental_price[0] !== 0 ||
+              filterValue.monthly_rental_price[1] !== 510) && (
+              <IconButton.Ghost iconType="close">
+                <Typography.P3 className="text-brown">
+                  {monthlyDisplay}
+                </Typography.P3>
+              </IconButton.Ghost>
+            )}
 
-          {Object.prototype.hasOwnProperty.call(tempFilter, 'mate_number') && (
-            <IconButton.Ghost iconType="close" className="!gap-x-2">
-              <Icon
-                type={
-                  mateNumInfo[
-                    tempFilter.mate_number as keyof typeof mateNumInfo
-                  ].icon
-                }
-              />
-              <Typography.P3 className="pr-2 text-brown">
-                {
-                  mateNumInfo[
-                    tempFilter.mate_number as keyof typeof mateNumInfo
-                  ].text
-                }
-              </Typography.P3>
-            </IconButton.Ghost>
-          )}
-          {Object.prototype.hasOwnProperty.call(tempFilter, 'mate_gender') && (
-            <IconButton.Ghost iconType="close" className="!gap-x-2">
-              <Icon
-                type={
-                  genderInfo[tempFilter.mate_gender as keyof typeof genderInfo]
-                    .icon
-                }
-              />
-              <Typography.P3 className="pr-2 text-brown">
-                {
-                  genderInfo[tempFilter.mate_gender as keyof typeof genderInfo]
-                    .text
-                }
-              </Typography.P3>
-            </IconButton.Ghost>
-          )}
+          {filterValue.mate_number !== undefined &&
+            filterValue.mate_number !== 0 && (
+              <IconButton.Ghost iconType="close" className="!gap-x-2">
+                <Icon
+                  type={
+                    mateNumInfo[
+                      filterValue.mate_number as keyof typeof mateNumInfo
+                    ].icon
+                  }
+                />
+                <Typography.P3 className="pr-2 text-brown">
+                  {
+                    mateNumInfo[
+                      filterValue.mate_number as keyof typeof mateNumInfo
+                    ].text
+                  }
+                </Typography.P3>
+              </IconButton.Ghost>
+            )}
+          {filterValue.mate_gender !== undefined &&
+            filterValue.mate_number !== 0 && (
+              <IconButton.Ghost iconType="close" className="!gap-x-2">
+                <Icon
+                  type={
+                    genderInfo[
+                      filterValue.mate_gender as keyof typeof genderInfo
+                    ].icon
+                  }
+                />
+                <Typography.P3 className="pr-2 text-brown">
+                  {
+                    genderInfo[
+                      filterValue.mate_gender as keyof typeof genderInfo
+                    ].text
+                  }
+                </Typography.P3>
+              </IconButton.Ghost>
+            )}
         </Container.FlexRow>
       </Container.FlexCol>
       <Container.Grid className="grid-cols-[1fr_1fr_1fr_1fr] gap-x-6 gap-y-10 overflow-x-auto px-16 monitor:px-0 [&>img]:object-contain">

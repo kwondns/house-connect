@@ -1,6 +1,7 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 import Container from '@/components/atoms/Container';
 import Divider from '@/components/atoms/Divider';
@@ -24,13 +25,13 @@ import BadgeButton from '@/components/molecules/BadgeButton';
 import DistrictSelector from '@/components/organisms/districtSelector/DistrictSelector';
 import { SelectorItemValueType } from '@/types/regionDistrict.type';
 import { createToast } from '@/libs/toast';
-import { SignupProfileStateSelector } from '@/stores/sign.store';
 import LabelDualInputRange from '@/components/organisms/LabelDualInputRange';
 import Icon from '@/components/atoms/Icon';
 import { genderInfo, mateNumInfo } from '@/constants/profileDetailInfo';
 import { HouseListForm, HouseListType } from '@/types/house.type';
 import HouseListFilterAtomState from '@/stores/houseList.store';
 import FormItem from '@/components/molecules/FormItem';
+import { InputRangeState } from '@/components/molecules/DualInputRange';
 
 function HouseListFilterModal() {
   const { isOpen } = useRecoilValue(HouseListFilterAtom);
@@ -53,13 +54,11 @@ function HouseListFilterModal() {
   const setDistrictState = useSetRecoilState<SelectorStateType<'시, 구'>>(
     MoleculeSelectorState('시, 구'),
   );
-  const [term, setTerm] = useRecoilState(SignupProfileStateSelector('term'));
-  const [depositPrice, setDepositPrice] = useRecoilState(
-    SignupProfileStateSelector('deposit_price'),
-  );
-  const [monthlyPrice, setMonthlyPrice] = useRecoilState(
-    SignupProfileStateSelector('monthly_rental_price'),
-  );
+  const [term, setTerm] = useState<InputRangeState>([0, 25]);
+  const [depositPrice, setDepositPrice] = useState<[number, number]>([
+    0, 10100,
+  ]);
+  const [monthlyPrice, setMonthlyPrice] = useState<[number, number]>([0, 510]);
 
   const onClickSelectFinish = (
     region: SelectorItemValueType<'지역'>,
@@ -201,7 +200,9 @@ function HouseListFilterModal() {
                     min={0}
                     max={24}
                     step={1}
-                    setRangeValue={setTerm}
+                    setRangeValue={
+                      setTerm as Dispatch<SetStateAction<InputRangeState>>
+                    }
                     rangeValue={term}
                     labelContainerStyle="mb-5 [&>h5]:text-SubTitle3"
                     category="term"
