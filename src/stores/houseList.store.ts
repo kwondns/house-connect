@@ -4,15 +4,15 @@ import { HouseListType } from '@/types/house.type';
 
 const HouseListFilterAtomState: RecoilState<HouseListType> =
   atom<HouseListType>({
-    key: 'HouseListFilterState',
+    key: 'HouseListFilterAtomState',
     default: {
       house_type: undefined,
       rental_type: undefined,
       term: undefined,
       deposit_price: undefined,
       monthly_rental_price: undefined,
-      mate_number: 0,
-      mate_gender: 0,
+      mate_number: undefined,
+      mate_gender: undefined,
       regions: undefined,
     },
   });

@@ -1,7 +1,7 @@
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import Container from '@/components/atoms/Container';
 import Divider from '@/components/atoms/Divider';
@@ -104,11 +104,38 @@ function HouseListFilterModal() {
     );
   };
 
-  const setUpdateListFilter = useSetRecoilState(HouseListFilterAtomState);
+  const [updateListFilter, setUpdateListFilter] = useRecoilState(
+    HouseListFilterAtomState,
+  );
 
   const onSubmitUpdateHouseList = (data: HouseListType) => {
     setUpdateListFilter(data);
+    closeHouseListFilterModal();
   };
+  useEffect(() => {
+    if (!isOpen) {
+      form.setValue('house_type', updateListFilter.house_type);
+      form.setValue('rental_type', updateListFilter.rental_type);
+      form.setValue('term', updateListFilter.term);
+      if (updateListFilter.term === undefined) {
+        setTerm([0, 25]);
+      }
+      form.setValue('deposit_price', updateListFilter.deposit_price);
+      if (updateListFilter.deposit_price === undefined) {
+        setDepositPrice([0, 10100]);
+      }
+      form.setValue(
+        'monthly_rental_price',
+        updateListFilter.monthly_rental_price,
+      );
+      if (updateListFilter.monthly_rental_price === undefined) {
+        setMonthlyPrice([0, 510]);
+      }
+      form.setValue('regions', updateListFilter.regions);
+      form.setValue('mate_gender', updateListFilter.mate_gender);
+      form.setValue('mate_number', updateListFilter.mate_number);
+    }
+  }, [isOpen, updateListFilter]);
 
   return isOpen ? (
     <ModalBackdrop modalType="HouseListFilter">
@@ -121,7 +148,9 @@ function HouseListFilterModal() {
                 iconType="close"
                 iconClassName="size-5"
                 className="size-8 items-center justify-center"
-                onClick={() => closeHouseListFilterModal()}
+                onClick={() => {
+                  closeHouseListFilterModal();
+                }}
               />
             </Container.FlexRow>
             <Divider.Col className="border-t-0" />

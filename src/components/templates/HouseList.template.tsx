@@ -2,7 +2,7 @@ import { UseSuspenseInfiniteQueryResult } from '@tanstack/react-query';
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
 import { useEffect, useRef } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import { HouseCardType } from '@/types/house.type';
 import HouseCard from '@/components/organisms/HouseCard';
@@ -38,7 +38,17 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
     isOpen: true,
     type: 'HouseListFilter',
   };
-  const filterValue = useRecoilValue(HouseListFilterAtomState);
+  // const filterValue = useRecoilValue(HouseListFilterAtomState);
+  const [filterValue, setFilterValue] = useRecoilState(
+    HouseListFilterAtomState,
+  );
+  const removeFilter = (key: string) => {
+    setFilterValue(prev => ({
+      ...prev,
+      [key]: undefined,
+    }));
+  };
+
   useEffect(() => {
     (async () => {
       if (isShow && hasNextPage) await fetchNextPage();
@@ -138,8 +148,11 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
           </Link>
         </Container.FlexRow>
         <Container.FlexRow className="flex-wrap gap-2 px-16 [&>button]:h-10 [&>button]:gap-x-4 [&>button]:rounded-[1.875rem] [&>button]:bg-white [&>button]:px-5">
-          {filterValue.house_type && (
-            <IconButton.Ghost iconType="close">
+          {filterValue.house_type !== undefined && (
+            <IconButton.Ghost
+              iconType="close"
+              onClick={() => removeFilter('house_type')}
+            >
               <Typography.P3 className="text-brown">
                 {
                   houseTypesInfo[
@@ -149,26 +162,37 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
               </Typography.P3>
             </IconButton.Ghost>
           )}
-          {filterValue.rental_type && (
-            <IconButton.Ghost iconType="close">
-              <Typography.P3 className="text-brown">
-                {
-                  rentalTypesInfo[
-                    filterValue.rental_type as keyof typeof rentalTypesInfo
-                  ]
-                }
-              </Typography.P3>
-            </IconButton.Ghost>
-          )}
+          {filterValue.rental_type !== undefined &&
+            filterValue.rental_type !== 0 && (
+              <IconButton.Ghost
+                iconType="close"
+                onClick={() => removeFilter('rental_type')}
+              >
+                <Typography.P3 className="text-brown">
+                  {
+                    rentalTypesInfo[
+                      filterValue.rental_type as keyof typeof rentalTypesInfo
+                    ]
+                  }
+                </Typography.P3>
+              </IconButton.Ghost>
+            )}
           {filterValue.regions &&
             filterValue.regions?.map(region => (
-              <IconButton.Ghost key={region} iconType="close">
+              <IconButton.Ghost
+                key={region}
+                iconType="close"
+                onClick={() => removeFilter('regions')}
+              >
                 <Typography.P3 className="text-brown">{region}</Typography.P3>
               </IconButton.Ghost>
             ))}
           {filterValue.term &&
             (filterValue.term[0] !== 0 || filterValue.term[1] !== 25) && (
-              <IconButton.Ghost iconType="close">
+              <IconButton.Ghost
+                iconType="close"
+                onClick={() => removeFilter('term')}
+              >
                 <Typography.P3 className="text-brown">
                   {termDisplay}
                 </Typography.P3>
@@ -177,7 +201,10 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
           {filterValue.deposit_price &&
             (filterValue.deposit_price[0] !== 0 ||
               filterValue.deposit_price[1] !== 10100) && (
-              <IconButton.Ghost iconType="close">
+              <IconButton.Ghost
+                iconType="close"
+                onClick={() => removeFilter('deposit_price')}
+              >
                 <Typography.P3 className="text-brown">
                   {depositDisplay}
                 </Typography.P3>
@@ -186,7 +213,10 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
           {filterValue.monthly_rental_price &&
             (filterValue.monthly_rental_price[0] !== 0 ||
               filterValue.monthly_rental_price[1] !== 510) && (
-              <IconButton.Ghost iconType="close">
+              <IconButton.Ghost
+                iconType="close"
+                onClick={() => removeFilter('monthly_rental_price')}
+              >
                 <Typography.P3 className="text-brown">
                   {monthlyDisplay}
                 </Typography.P3>
@@ -195,7 +225,11 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
 
           {filterValue.mate_number !== undefined &&
             filterValue.mate_number !== 0 && (
-              <IconButton.Ghost iconType="close" className="!gap-x-2">
+              <IconButton.Ghost
+                iconType="close"
+                className="!gap-x-2"
+                onClick={() => removeFilter('mate_number')}
+              >
                 <Icon
                   type={
                     mateNumInfo[
@@ -213,8 +247,12 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
               </IconButton.Ghost>
             )}
           {filterValue.mate_gender !== undefined &&
-            filterValue.mate_number !== 0 && (
-              <IconButton.Ghost iconType="close" className="!gap-x-2">
+            filterValue.mate_gender !== 0 && (
+              <IconButton.Ghost
+                iconType="close"
+                className="!gap-x-2"
+                onClick={() => removeFilter('mate_gender')}
+              >
                 <Icon
                   type={
                     genderInfo[
