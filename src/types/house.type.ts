@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { SignUpProfileForm } from '@/types/signUp.type';
+
 export const HouseForm = z.object({
   house_img: z
     .array(z.string())
@@ -110,3 +112,19 @@ export type HouseCardType = z.infer<typeof HouseCard> & {
   id: string;
   user_id: string;
 };
+export type HouseListType = z.infer<typeof HouseListForm>;
+export const HouseListForm = HouseForm.pick({
+  house_type: true,
+  rental_type: true,
+  term: true,
+})
+  .merge(
+    SignUpProfileForm.innerType().innerType().pick({
+      deposit_price: true,
+      monthly_rental_price: true,
+      mate_number: true,
+      mate_gender: true,
+      regions: true,
+    }),
+  )
+  .partial();
