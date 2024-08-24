@@ -35,6 +35,7 @@ export type IconType =
   | 'camera'
   | 'prev'
   | 'next'
+  | 'back'
   | 'monthly-rental-price'
   | 'semi-monthly-rental-price'
   | 'year-rental-price'
@@ -42,10 +43,6 @@ export type IconType =
   | 'one-person'
   | 'two-people'
   | 'three-people'
-  | 'back'
-  | 'open-triangle'
-  | 'close-triangle'
-  | 'pet-hart'
   | 'dont-mind-people'
   | 'done'
   | 'mini-heart'
@@ -65,8 +62,14 @@ export type IconType =
   | 'fill-heart'
   | 'edit'
   | 'delete'
-  | 'camera-off'
-  | 'edit-avatar';
+  | 'edit-avatar'
+  | 'down-arrow'
+  | 'filter'
+  | 'add'
+  | 'open-triangle'
+  | 'close-triangle'
+  | 'pet-hart'
+  | 'camera-off';
 
 export type CustomIconType = {
   fill?: ColorType;

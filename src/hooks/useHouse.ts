@@ -372,7 +372,7 @@ export const useHouseList = () =>
       supabase
         .from('house')
         .select(
-          'id, representative_img, region, house_appeal, house_type, rental_type, region, district, term, deposit_price, monthly_price',
+          'id, representative_img, region, house_appeal, house_type, rental_type, region, district, term, deposit_price, monthly_price, user_id',
           { count: 'exact' },
         )
         // 임시 저장 제외

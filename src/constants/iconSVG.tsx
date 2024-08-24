@@ -28,6 +28,8 @@ import Visible from '@/assets/icons/visible.svg?react';
 import AlarmExist from '@/assets/icons/alarm-exist.svg?react';
 import AlarmNone from '@/assets/icons/alarm-none.svg?react';
 import Avatar from '@/assets/icons/avatar.svg?react';
+import IconMale from '@/assets/icons/mini-male-icon.svg?react';
+import IconFemale from '@/assets/icons/mini-female-icon.svg?react';
 import Back from '@/assets/icons/back.svg?react';
 import Heart from '@/assets/icons/heart.svg?react';
 import FillHeart from '@/assets/icons/fill-heart.svg?react';
@@ -54,8 +56,6 @@ import DontMindPeople from '@/assets/icons/dont-mind-people.svg?react';
 import Done from '@/assets/icons/done.svg?react';
 import CameraOff from '@/assets/icons/camera-off.svg?react';
 import Front from '@/assets/icons/front.svg?react';
-import IconMale from '@/assets/icons/icon-male.svg?react';
-import IconFemale from '@/assets/icons/icon-female.svg?react';
 import OpenTriangle from '@/assets/icons/open-triangle.svg?react';
 import CloseTriangle from '@/assets/icons/close-triangle.svg?react';
 import PetHart from '@/assets/icons/pet_hart.svg?react';
@@ -66,6 +66,9 @@ import Search from '@/assets/icons/search.svg?react';
 import Edit from '@/assets/icons/edit.svg?react';
 import Delete from '@/assets/icons/delete.svg?react';
 import EditAvatar from '@/assets/icons/edit_avatar.svg?react';
+import DownArrow from '@/assets/icons/down-arrow.svg?react';
+import Filter from '@/assets/icons/filter.svg?react';
+import Add from '@/assets/icons/add.svg?react';
 import { IconType } from '@/types/icon.type';
 import cn from '@/libs/cn';
 
@@ -296,42 +299,6 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
       {...others}
     />
   ),
-  front: ({ className, ...others }) => (
-    <Front className={className} {...others} />
-  ),
-  'icon-male': ({ className, ...others }) => (
-    <IconMale
-      className={(cn('w-[1.5rem] h-[1.5rem]'), className)}
-      {...others}
-    />
-  ),
-  'icon-female': ({ className, ...others }) => (
-    <IconFemale
-      className={(cn('w-[1.5rem] h-[1.5rem]'), className)}
-      {...others}
-    />
-  ),
-  'icon-gender-free': ({ className, ...others }) => (
-    <IconGenderFree
-      className={(cn('w-[1.5rem] h-[1.5rem]'), className)}
-      {...others}
-    />
-  ),
-  'open-triangle': ({ className, ...others }) => (
-    <OpenTriangle className={(cn('w-[1.25rem]'), className)} {...others} />
-  ),
-  'close-triangle': ({ className, ...others }) => (
-    <CloseTriangle className={(cn('w-[1.25rem]'), className)} {...others} />
-  ),
-  'pet-hart': ({ className, ...others }) => (
-    <PetHart className={(cn('w-[1.125rem] h-auto'), className)} {...others} />
-  ),
-  'pet-circle': ({ className, ...others }) => (
-    <PetCircle
-      className={(cn('w-[1.125rem] h-[1.125rem]'), className)}
-      {...others}
-    />
-  ),
   'mini-heart': ({ className, ...others }) => (
     <MiniHeart className={cn('w-[1.3025rem] h-6', className)} {...others} />
   ),
@@ -357,10 +324,7 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
     />
   ),
   share: ({ className, ...others }) => (
-    <Share
-      className={cn('w-[2.6875rem] h-[2.3125rem]', className)}
-      {...others}
-    />
+    <Share className={cn('w-[1.8125rem] h-[2.25rem]', className)} {...others} />
   ),
   'mini-smoke': ({ className, ...others }) => (
     <MiniSmoke
@@ -374,6 +338,15 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
       {...others}
     />
   ),
+  'icon-male': ({ className, ...others }) => (
+    <IconMale className={cn('size-6', className)} {...others} />
+  ),
+  'icon-female': ({ className, ...others }) => (
+    <IconFemale className={cn('size-6', className)} {...others} />
+  ),
+  'icon-gender-free': ({ className, ...others }) => (
+    <IconGenderFree className={cn('size-6', className)} {...others} />
+  ),
   'pet-heart': ({ className, ...others }) => (
     <PetHeart
       className={cn('w-[1.125rem] h-[0.958125rem]', className)}
@@ -383,17 +356,44 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
   'pet-hate': ({ className, ...others }) => (
     <PetHate className={cn('size-[1.125rem]', className)} {...others} />
   ),
+  'pet-circle': ({ className, ...others }) => (
+    <PetCircle className={cn('size-[1.125rem]', className)} {...others} />
+  ),
   edit: ({ className, ...others }) => (
     <Edit className={cn('size-[17px]', className)} {...others} />
   ),
   delete: ({ className, ...others }) => (
     <Delete className={cn('size-[24px]', className)} {...others} />
   ),
-  'camera-off': ({ className, ...others }) => (
-    <CameraOff className={cn('size-[4rem]', className)} {...others} />
-  ),
   'edit-avatar': ({ className, ...others }) => (
     <EditAvatar className={cn('w-6 h-[1.375rem]', className)} {...others} />
+  ),
+  'down-arrow': ({ className, ...others }) => (
+    <DownArrow className={cn('size-12', className)} {...others} />
+  ),
+  filter: ({ className, ...others }) => (
+    <Filter
+      className={cn('w-[0.875rem] h-[0.6875rem]', className)}
+      {...others}
+    />
+  ),
+  add: ({ className, ...others }) => (
+    <Add className={cn('size-3', className)} {...others} />
+  ),
+  front: ({ className, ...others }) => (
+    <Front className={className} {...others} />
+  ),
+  'open-triangle': ({ className, ...others }) => (
+    <OpenTriangle className={(cn('w-[1.25rem]'), className)} {...others} />
+  ),
+  'close-triangle': ({ className, ...others }) => (
+    <CloseTriangle className={(cn('w-[1.25rem]'), className)} {...others} />
+  ),
+  'pet-hart': ({ className, ...others }) => (
+    <PetHart className={(cn('w-[1.125rem] h-auto'), className)} {...others} />
+  ),
+  'camera-off': ({ className, ...others }) => (
+    <CameraOff className={cn('size-[4rem]', className)} {...others} />
   ),
 };
 
