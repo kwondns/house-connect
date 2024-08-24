@@ -1,7 +1,6 @@
 import {
   createBrowserRouter,
   Navigate,
-  Outlet,
   RouteObject,
   RouterProvider,
 } from 'react-router-dom';
@@ -27,7 +26,6 @@ import HouseRegister from '@/components/pages/HouseRegister';
 import { ChatRoom } from '@/components/templates/chats';
 import Chat from '@/components/pages/Chat';
 import HouseDetail from '@/components/pages/HouseDetail';
-import HouseList from '@/components/pages/HouseList';
 import MyPageLayoutTemplate from '@/components/templates/MyPageLayout.template';
 import MyActivity from '@/components/pages/MyActivity';
 import MyAccount from '@/components/pages/MyAccount';

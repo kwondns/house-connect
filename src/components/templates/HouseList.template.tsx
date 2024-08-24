@@ -97,7 +97,7 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
 
   return (
     <Container.FlexCol className="bg-transparent">
-      <Container.FlexCol className="relative h-screen min-h-[75.375rem] pt-[4.0625rem] laptop:min-h-[85rem] laptop:px-[7.5rem] monitor:px-[11.25rem]">
+      <Container.FlexCol className="relative h-screen min-h-[75.375rem] pt-[4.0625rem] monitor:px-[11.25rem] laptop:min-h-[85rem] laptop:px-[7.5rem]">
         <Typography.P1 className="text-[2.5rem] leading-[135%] text-[#FF5F3C]">
           HOUSE THE COLLECTION
         </Typography.P1>

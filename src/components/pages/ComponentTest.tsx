@@ -34,7 +34,6 @@ import {
   RoommateApplyState,
 } from '@/types/modal.type';
 import Avatar from '@/components/atoms/Avatar';
-import BadgeIcon from '@/components/molecules/BadgeIcon';
 
 export default function ComponentTest() {
   const [carouselStep, setCarouselStep] = useState<number>(0);

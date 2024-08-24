@@ -82,9 +82,6 @@ export const HouseForm = z.object({
       message: '최소 기간이 최대 기간보다 클 수 없습니다.',
     }),
   describe: z.string(),
-  prefer_age: z.tuple([z.number(), z.number()], {
-    required_error: '원하시는 룸메이트의 연력을 선택해주세요.',
-  }),
   /**
    * ### 저장 유형
    * - 0: 임시 저장(default)
