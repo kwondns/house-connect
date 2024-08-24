@@ -4,6 +4,7 @@ export type ModalType =
   | 'Profile'
   | 'RoommateApplicationStatus'
   | 'RoommateApply'
+  | 'HouseListFilter';
 
 export type ModalStateByType = {
   Alert: AlertModalState;
@@ -11,6 +12,7 @@ export type ModalStateByType = {
   Profile: ProfileModalState;
   RoommateApplicationStatus: RoommateApplicationState;
   RoommateApply: RoommateApplyState;
+  HouseListFilter: HouseListFilterState;
 };
 
 export type AlertModalState = {
@@ -54,7 +56,7 @@ export type RoommateApplicationState = {
   onClickChat: () => void;
   onClickCancel: () => void;
   onClickConfirm: () => void;
-}
+};
 
 export type RoommateApplyState = {
   isOpen: boolean;
@@ -63,4 +65,9 @@ export type RoommateApplyState = {
   roommateAppeals: string[];
   onClickCancel: () => void;
   onClickConfirm: () => void;
+};
+
+export type HouseListFilterState = {
+  isOpen: boolean;
+  type: 'HouseListFilter';
 };

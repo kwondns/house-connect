@@ -27,6 +27,7 @@ import StepNavLinks from '@/components/molecules/StepNavLinks';
 import {
   AlertModalState,
   ConfirmModalState,
+  HouseListFilterState,
   ProfileModalState,
   RoommateApplicationState,
   RoommateApplyState,
@@ -145,6 +146,12 @@ export default function ComponentTest() {
       alert('Completed Apply');
       closeRoommateApplyModal();
     },
+  };
+  const { setModalState: setHouseListFilterModal } =
+    useModal('HouseListFilter');
+  const HouseListFilterModalContext: HouseListFilterState = {
+    isOpen: true,
+    type: 'HouseListFilter',
   };
   // ******************************* modal 관련 state *******************************
 
@@ -779,6 +786,13 @@ export default function ComponentTest() {
         onClick={() => setRoommateApplyModal(RoommateApplyModalContext)}
       >
         Roommate modal 열기
+      </button>
+      <button
+        type="button"
+        className="mb-10"
+        onClick={() => setHouseListFilterModal(HouseListFilterModalContext)}
+      >
+        HouseListFilterModal 열기
       </button>
     </div>
   );
