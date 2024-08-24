@@ -1,5 +1,10 @@
 /* eslint-disable react/function-component-definition */
-import { ComponentProps, FC } from 'react';
+import {
+  ComponentProps,
+  FC,
+  forwardRef,
+  ForwardRefRenderFunction,
+} from 'react';
 
 import cn from '@/libs/cn';
 
@@ -37,16 +42,15 @@ const FlexRowContainer: FC<ContainerProps> = ({
   </div>
 );
 
-const FlexColumnContainer: FC<ContainerProps> = ({
-  children,
-  className = '',
-  ...others
-}) => (
-  <div className={cn('flex flex-col', className)} {...others}>
+const FlexColumnContainer: ForwardRefRenderFunction<
+  HTMLDivElement,
+  ContainerProps
+> = ({ children, className = '', ...others }, ref) => (
+  <div ref={ref} className={cn('flex flex-col', className)} {...others}>
     {children}
   </div>
 );
 
 Container.FlexRow = FlexRowContainer;
-Container.FlexCol = FlexColumnContainer;
+Container.FlexCol = forwardRef(FlexColumnContainer);
 Container.Grid = GridContainer;

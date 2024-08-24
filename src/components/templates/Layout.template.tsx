@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import cn from '@/libs/cn';
 import Header from '@/components/organisms/Header';
@@ -21,7 +21,7 @@ export default function LayoutTemplate() {
           <Container className="fixed inset-x-0 -z-10 h-full bg-[#FFD7C6]" />
           <main
             className={cn(
-              'flex bg-bg flex-col relative max-w-[90rem] monitor:max-w-[97.5rem] mx-auto h-screen pt-[9.25rem] bg-transparent',
+              'flex flex-col relative max-w-[90rem] monitor:max-w-[97.5rem] mx-auto h-screen pt-[9.25rem] bg-transparent',
             )}
           >
             <Outlet />

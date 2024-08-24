@@ -50,7 +50,7 @@ export default function RoommateApplyModal() {
 
   return isOpen ? (
     <form
-      onSubmit={handleSubmit(data => {
+      onSubmit={handleSubmit(_data => {
         onClickConfirm();
         alert('룸메이트 신청 API fetch function invoke');
       })}

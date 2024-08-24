@@ -32,6 +32,14 @@ export const generateUnitByPrice = (value: number, maxLimitValue: number) => {
   return `${[billion, thousand].join(' ')}원`;
 };
 
+// ! 1살 단위
+export const generateUnitByAge = (value: number, maxLimitValue: number) => {
+  if (value === 0) return '20살';
+  if (value > maxLimitValue) return `${maxLimitValue + 20}살`;
+
+  return `${value + 20}살`;
+};
+
 export const convertUnitWithSuffix =
   (convertToUnitFunction: ConvertToUnitFunction) =>
   (value: number, maxLimitValue: number) => {
@@ -43,6 +51,7 @@ export const convertUnitWithSuffix =
 const unitConverters = {
   price: convertUnitWithSuffix(generateUnitByPrice),
   term: convertUnitWithSuffix(generateUnitByTerm),
+  age: convertUnitWithSuffix(generateUnitByAge),
 };
 
 export default unitConverters;

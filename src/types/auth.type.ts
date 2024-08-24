@@ -67,7 +67,7 @@ export const SignUpInfo = z.object({
 export type SignUpInfoType = z.infer<typeof SignUpInfo>;
 
 // * SignUp Email 페이지 타입
-const PasswordValidate = z
+export const PasswordValidate = z
   .string({ required_error: '비밀번호를 입력해주세요.' })
   .min(8, {
     message: '영문, 숫자, 특수기호를 포함하여 8자리 이상 입력해주세요.',

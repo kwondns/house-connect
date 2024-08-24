@@ -1,5 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
 
 import Container from '@/components/atoms/Container';
 import Typography from '@/components/atoms/Typography';
@@ -7,6 +8,13 @@ import Button from '@/components/atoms/Button';
 import FormItem from '@/components/molecules/FormItem';
 import { SignUpInfo, SignUpInfoType } from '@/types/auth.type';
 import { useUpdateUserInfo } from '@/hooks/useSign';
+
+function Dash() {
+  return <div className="mt-3 h-[1px] w-[0.5625rem] bg-brown" />;
+}
+function Dot() {
+  return <div className="size-1 rounded-full bg-brown" />;
+}
 
 export default function SignUpInfoTemplate() {
   const Form = FormProvider;
@@ -18,6 +26,15 @@ export default function SignUpInfoTemplate() {
     const { gender, ...others } = data;
     updateUserInfo({ ...others, gender: gender === 1 || gender === 3 ? 1 : 2 });
   };
+  useEffect(() => {
+    const { errors } = form.formState;
+    if (errors.birth) {
+      form.clearErrors('gender');
+    } else if (errors.gender) {
+      form.setError('birth', errors.gender);
+      form.clearErrors('gender');
+    }
+  }, [form.formState.errors]);
 
   return (
     <Container.FlexCol className="min-w-full flex-1 gap-[3.25rem]">
@@ -40,20 +57,26 @@ export default function SignUpInfoTemplate() {
                 inputStyle="mt-[1rem]"
                 disabled={isPending}
               />
-              <p className="pt-3">-</p>
+              <Dash />
               <FormItem.TextField
                 type="text"
                 name="gender"
-                inputStyle="mt-[2rem] "
-                containerStyle="w-[2.5rem]"
+                placeholder="2"
+                inputStyle="w-[2.5625rem] mt-[2rem] placeholder:text-[0.9375rem]"
+                containerStyle=""
                 disabled={isPending}
               />
-              <p className="pt-3">* * * * * *</p>
+              <Container.FlexRow className="gap-x-[0.75rem] pt-3">
+                {Array.from({ length: 6 }).map(() => (
+                  // eslint-disable-next-line react/jsx-key
+                  <Dot />
+                ))}
+              </Container.FlexRow>
             </Container.FlexRow>
           </Container.FlexCol>
           <Button.Fill
             type="submit"
-            className=" mt-[3.25rem] w-full rounded-[10px]"
+            className="mt-[2.5rem] w-full rounded-[10px] py-[0.25rem]"
             disabled={isPending}
           >
             <Typography.P3 className="mx-auto my-[1rem] text-[#F4E7DB]">

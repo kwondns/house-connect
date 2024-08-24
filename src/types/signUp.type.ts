@@ -10,7 +10,7 @@ const regions = (Object.entries(district) as Entries<typeof district>).flatMap(
   ([key, value]) => value.map(region => `${key} ${region}` as const),
 );
 
-type RegionUnion = (typeof regions)[number];
+export type RegionUnion = (typeof regions)[number];
 
 // ! Original이 있는 이유는 refine을 사용하여 appealInputValue와 appeals를 검증
 // ! 하지만 refine을 사용한 인스턴스는 ZodEffect로 변환되어 Omit을 사용할 수 없다.
@@ -137,7 +137,7 @@ const SignUpProfileFormOriginal = z.object({
         z
           .number()
           .min(0, { message: '최소값은 0원 입니다.' })
-          .max(510, { message: '최대값은 500만원 이상 입니다.' }),
+          .max(501, { message: '최대값은 500만원 이상 입니다.' }),
       ],
       { required_error: '월세의 최소 가격 및 최대 가격을 선택해주세요.' },
     )

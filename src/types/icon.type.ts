@@ -29,6 +29,7 @@ export type IconType =
   | 'alarm-exist'
   | 'alarm-none'
   | 'avatar'
+  | 'front'
   | 'paper-clip'
   | 'send'
   | 'camera'
@@ -64,7 +65,11 @@ export type IconType =
   | 'edit-avatar'
   | 'down-arrow'
   | 'filter'
-  | 'add';
+  | 'add'
+  | 'open-triangle'
+  | 'close-triangle'
+  | 'pet-hart'
+  | 'camera-off';
 
 export type CustomIconType = {
   fill?: ColorType;

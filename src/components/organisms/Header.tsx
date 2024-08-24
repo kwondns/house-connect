@@ -95,7 +95,7 @@ function UserMenu({
 export default function Header({ className, isLogin, ...others }: Props) {
   // ! TODO: 알람기능 추가시 바꿔야 함
   const [hasNewAlarm] = useState(false);
-  const [isUserMenuActive, setIsUserMenuActive] = useState(false);
+  const [isUserMenuActive, _setIsUserMenuActive] = useState(false);
   const location = useLocation();
   const user = useRecoilValue(UserAtom);
   const navItems = useMemo(
@@ -106,6 +106,7 @@ export default function Header({ className, isLogin, ...others }: Props) {
     ],
     [],
   );
+  const isNotHousePath = !location.pathname.endsWith('/house');
   const isNotSignPath = !location.pathname.startsWith('/sign');
   const isSignUpProfilePath = location.pathname.startsWith('/signup');
 
@@ -115,6 +116,7 @@ export default function Header({ className, isLogin, ...others }: Props) {
         'fixed left-0 top-0 z-50 w-screen bg-transparent',
         isNotSignPath && 'bg-bg',
         isSignUpProfilePath && 'bg-bg',
+        isNotHousePath && 'hidden tablet:block',
       )}
       {...others}
     >

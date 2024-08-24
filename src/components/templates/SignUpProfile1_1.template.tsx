@@ -3,7 +3,6 @@ import { useRecoilState } from 'recoil';
 import Container from '@/components/atoms/Container';
 import SignUpProfileStepTitleTemplate from '@/components/templates/SignUpProfileStepTitle.template';
 import Typography from '@/components/atoms/Typography';
-import Button from '@/components/atoms/Button';
 import IconButton from '@/components/molecules/IconButton';
 import { SignupProfileStateSelector } from '@/stores/sign.store';
 import { SignUpProfileFormType } from '@/types/signUp.type';

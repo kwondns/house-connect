@@ -8,7 +8,7 @@ import cn from '@/libs/cn';
 
 type LabelDualInputRangeProps = DualInputRangeType & {
   label?: string;
-  category: 'price' | 'term';
+  category: 'price' | 'term' | 'age';
   labelContainerStyle?: string;
   rulerStyle?: string;
 };

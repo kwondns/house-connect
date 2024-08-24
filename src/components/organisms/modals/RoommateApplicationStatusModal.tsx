@@ -8,7 +8,6 @@ import Button from '@/components/atoms/Button';
 import Badge from '@/components/atoms/Badge';
 import Icon from '@/components/atoms/Icon';
 import { RoommateApplicationAtom } from '@/stores/globalModal.store';
-import Img from '@/components/atoms/Img';
 import Avatar from '@/components/atoms/Avatar';
 
 export default function RoomMateApplicationStatus() {

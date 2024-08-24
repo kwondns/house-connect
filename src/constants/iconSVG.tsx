@@ -28,18 +28,18 @@ import Visible from '@/assets/icons/visible.svg?react';
 import AlarmExist from '@/assets/icons/alarm-exist.svg?react';
 import AlarmNone from '@/assets/icons/alarm-none.svg?react';
 import Avatar from '@/assets/icons/avatar.svg?react';
+import IconMale from '@/assets/icons/mini-male-icon.svg?react';
+import IconFemale from '@/assets/icons/mini-female-icon.svg?react';
 import Back from '@/assets/icons/back.svg?react';
 import Heart from '@/assets/icons/heart.svg?react';
 import FillHeart from '@/assets/icons/fill-heart.svg?react';
 import Share from '@/assets/icons/share.svg?react';
 import MiniSmoke from '@/assets/icons/mini-smoke.svg?react';
 import MiniNoneSmoke from '@/assets/icons/mini-none-smoke.svg?react';
-import IconMale from '@/assets/icons/mini-male-icon.svg?react';
-import IconFemale from '@/assets/icons/mini-female-icon.svg?react';
-import IconGenderFree from '@/assets/icons/ph_gender-intersex.svg?react';
 import PetHeart from '@/assets/icons/mini-pet-lover.svg?react';
 import PetHate from '@/assets/icons/mini-none-pet-lover.svg?react';
 import PetCircle from '@/assets/icons/mini-dont-mind-pet.svg?react';
+import IconGenderFree from '@/assets/icons/ph_gender-intersex.svg?react';
 import PaperClip from '@/assets/icons/paper-clip.svg?react';
 import Send from '@/assets/icons/send.svg?react';
 import Camera from '@/assets/icons/camera.svg?react';
@@ -54,6 +54,11 @@ import TwoPeople from '@/assets/icons/two-people.svg?react';
 import ThreePeople from '@/assets/icons/three-people.svg?react';
 import DontMindPeople from '@/assets/icons/dont-mind-people.svg?react';
 import Done from '@/assets/icons/done.svg?react';
+import CameraOff from '@/assets/icons/camera-off.svg?react';
+import Front from '@/assets/icons/front.svg?react';
+import OpenTriangle from '@/assets/icons/open-triangle.svg?react';
+import CloseTriangle from '@/assets/icons/close-triangle.svg?react';
+import PetHart from '@/assets/icons/pet_hart.svg?react';
 import MiniHeart from '@/assets/icons/mini-heart.svg?react';
 import PagePrev from '@/assets/icons/page-prev.svg?react';
 import PageNext from '@/assets/icons/page-next.svg?react';
@@ -374,6 +379,21 @@ const IconSVG: { [key in IconType]: FC<SVGProps<SVGSVGElement>> } = {
   ),
   add: ({ className, ...others }) => (
     <Add className={cn('size-3', className)} {...others} />
+  ),
+  front: ({ className, ...others }) => (
+    <Front className={className} {...others} />
+  ),
+  'open-triangle': ({ className, ...others }) => (
+    <OpenTriangle className={(cn('w-[1.25rem]'), className)} {...others} />
+  ),
+  'close-triangle': ({ className, ...others }) => (
+    <CloseTriangle className={(cn('w-[1.25rem]'), className)} {...others} />
+  ),
+  'pet-hart': ({ className, ...others }) => (
+    <PetHart className={(cn('w-[1.125rem] h-auto'), className)} {...others} />
+  ),
+  'camera-off': ({ className, ...others }) => (
+    <CameraOff className={cn('size-[4rem]', className)} {...others} />
   ),
 };
 

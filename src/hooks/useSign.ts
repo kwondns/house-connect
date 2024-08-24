@@ -166,6 +166,26 @@ export const useSignInSocial = () => {
   return { signInSocial, isSignInSocial };
 };
 
+export const useResendVerifyMail = () => {
+  const { mutate: resendVerifyMail, isPending: isResending } = useMutation({
+    mutationFn: async (payload: { email: string }) => {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: payload.email,
+      });
+      if (error) throw new Error(error.message);
+    },
+    onMutate: () =>
+      createToast('resendVerifyEmail', '인증메일을 전송중입니다.'),
+    onError: (error: AuthError) => {
+      errorToast('resendVerifyEmail', error.message);
+    },
+    onSuccess: async () => {
+      successToast('resendVerifyEmail', '📧 인증메일이 전송되었습니다.');
+    },
+  });
+  return { resendVerifyMail, isResending };
+};
 export const useUpdateUserInfo = () => {
   const navigate = useNavigate();
   const { mutate: updateUserInfo, isPending } = useMutation({

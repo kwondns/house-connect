@@ -43,7 +43,7 @@ FormItem.Password = function FormItemPassword<T extends FieldValues>(
       />
       <IconButton.Ghost
         tabIndex={-1}
-        className="absolute bottom-[44px] right-[13px] top-[53px]"
+        className={`absolute bottom-[44px] right-[13px] ${labelName ? 'top-[53px]' : 'top-[30px]'}`}
         iconType={isVisible ? 'visible' : 'invisible'}
         onClick={onClickVisible}
       />

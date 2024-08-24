@@ -37,7 +37,12 @@ export default function ProfileModal() {
         />
         <Container.FlexRow className="h-96 max-h-96 w-full items-center justify-center bg-brown">
           {profileImage ? (
-            <Img src={profileImage} alt="Profile Image" />
+            <Img
+              src={profileImage}
+              imageStyle="rounded-t-xl"
+              className="rounded-none"
+              alt="Profile Image"
+            />
           ) : (
             <Icon className="size-[7.5rem] cursor-pointer" type="avatar" />
           )}

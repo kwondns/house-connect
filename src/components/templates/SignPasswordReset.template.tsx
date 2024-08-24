@@ -26,7 +26,7 @@ export default function SignPasswordResetTemplate() {
     navigate('/sign/in');
   };
   return (
-    <Container.FlexCol className="w-full gap-[2.5rem]">
+    <Container.FlexCol className="mt-[11.875rem] w-full gap-[2.5rem]">
       <IconButton.Ghost
         onClick={onClickPrevButton}
         iconType="back"
@@ -35,7 +35,7 @@ export default function SignPasswordResetTemplate() {
       />
       <Container.FlexCol className="gap-[3.5rem]">
         <Typography.Head2 className="text-brown">
-          비밀번호 초기화
+          비밀번호 재설정
         </Typography.Head2>
         <Container className="w-full">
           <Form {...form}>
@@ -48,11 +48,11 @@ export default function SignPasswordResetTemplate() {
               />
               <Button.Fill
                 type="submit"
-                className="mt-[3.25rem] w-full rounded-[10px]"
+                className="mt-[2.5rem] w-full rounded-[10px] py-[0.25rem]"
                 disabled={isPending}
               >
                 <Typography.P3 className="mx-auto my-[1rem] text-[#F4E7DB]">
-                  비밀번호 초기화
+                  완료
                 </Typography.P3>
               </Button.Fill>
             </form>

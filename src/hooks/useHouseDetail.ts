@@ -3,10 +3,12 @@ import {
   useMutation,
   useQueryClient,
 } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 import { supabase } from '@/libs/supabaseClient';
-import { createToast } from '@/libs/toast';
+import { createToast, errorToast, successToast } from '@/libs/toast';
 import { UserType } from '@/types/auth.type';
+import HOUSE_KEYS from '@/constants/queryKeys/house';
 
 type BookMark = {
   id: string;
@@ -39,10 +41,13 @@ export const useUpdateBookMark = () => {
     },
     onSuccess: (_data, variables) => {
       queryClient.invalidateQueries({
-        queryKey: ['house_bookmark', variables.id, variables.houseId],
+        queryKey: HOUSE_KEYS.HOUSE_DETAIL_BOOKMARK(
+          variables.id,
+          variables.houseId,
+        ),
       });
       queryClient.invalidateQueries({
-        queryKey: ['house', 'detail', variables.houseId],
+        queryKey: HOUSE_KEYS.HOUSE_DETAIL(variables.houseId),
       });
 
       if (variables.isBookMark) {
@@ -69,10 +74,55 @@ export const useUpdateBookMark = () => {
   });
   return { updateBookMark, isPending };
 };
+export const removeStorage = async (houseId: string, userId: string) => {
+  const { data, error } = await supabase.storage
+    .from('images')
+    .list(`house/${userId}/${houseId}`, {
+      limit: 10,
+      offset: 0,
+    });
+  if (error) throw new Error(error.message);
+  if (data) {
+    data.forEach(async imgObj => {
+      const imgName = imgObj.name;
+      const { error: removeError } = await supabase.storage
+        .from('images')
+        .remove([`house/${userId}/${houseId}/${imgName}`]);
+      if (removeError) throw new Error(removeError.message);
+    });
+  }
+};
+
+export const useDeleteHouseDetail = () => {
+  const navigate = useNavigate();
+  const { mutate: deleteHouseDetailPage } = useMutation({
+    mutationFn: async (houseId: string) => {
+      const { error } = await supabase.from('house').delete().eq('id', houseId);
+      if (error) {
+        throw new Error(error.message);
+      }
+    },
+    onMutate: () =>
+      createToast('deleteHouseDetailPage', '하우스 디테일 페이지 삭제 중...'),
+    onError: () =>
+      errorToast(
+        'deleteHouseDetailPage',
+        '하우스 디테일 페이지 삭제에 실패했습니다.',
+      ),
+    onSuccess: () => {
+      successToast(
+        'deleteHouseDetailPage',
+        '하우스 디테일 페이지가 삭제되었습니다.',
+      );
+      navigate('/house');
+    },
+  });
+  return { deleteHouseDetailPage };
+};
 
 export const houseDetailQuery = (houseId: string | undefined) =>
   queryOptions({
-    queryKey: ['house', 'detail', houseId],
+    queryKey: HOUSE_KEYS.HOUSE_DETAIL(houseId),
     queryFn: async () =>
       supabase
         .from('house')
@@ -89,7 +139,7 @@ export const useHouseBookMark = (
   houseId: string | undefined,
 ) =>
   queryOptions({
-    queryKey: ['house_bookmark', user?.id, houseId],
+    queryKey: HOUSE_KEYS.HOUSE_DETAIL_BOOKMARK(user?.id, houseId),
     queryFn: async () =>
       supabase
         .from('user_bookmark')

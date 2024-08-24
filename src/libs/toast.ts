@@ -65,3 +65,11 @@ export const errorToast = (id: string, message: string) =>
     transition: Flip,
     isLoading: false,
   });
+
+/**
+ * Toast를 제거합니다.
+ * @param {string} id 제거할 Toast의 id
+ */
+export const removeToast = (id: string) => {
+  toast.dismiss(id);
+};

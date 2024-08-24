@@ -28,8 +28,8 @@ export default function SignLayoutTemplate() {
             });
 
             navigate('/sign/up/info');
-          } 
-          // 성공적으로 user추가정보(birth, gender, nickname)를 update했을 때 
+          }
+          // 성공적으로 user추가정보(birth, gender, nickname)를 update했을 때
           else {
             navigate('/signup-intro');
           }
@@ -47,7 +47,7 @@ export default function SignLayoutTemplate() {
     <>
       <Container
         className={cn(
-          'fixed left-0 top-0 z-[-9999] h-screen w-[51vw] bg-subColor1',
+          'hidden laptop:block fixed left-0 top-0 z-[-9999] h-screen w-[51vw] bg-subColor1',
         )}
       />
       <Container
@@ -55,10 +55,13 @@ export default function SignLayoutTemplate() {
           'fixed right-0 top-0 z-[-9998] h-screen w-[50vw] bg-bg rounded-xl',
         )}
       />
-      <Container className="h-full w-[50%] pl-[4.75rem] pt-[calc(50vh-147px)]">
-        <Icon className="translate-y-[-50%]" type="character" />
+      <Container className="relative hidden h-full w-[50%] pt-[calc(50vh-147px)] laptop:block">
+        <Icon
+          className="absolute right-[7.5rem] h-[348px] w-[275px] translate-y-[-50%] desktop:right-[10rem] desktop:h-[411px] desktop:w-[324px]"
+          type="character"
+        />
       </Container>
-      <Container className="absolute right-0 w-[50%] pl-[7.125rem]">
+      <Container className="mx-auto w-full max-w-[256px] tablet:max-w-[384px] laptop:absolute laptop:left-[50%] laptop:mx-0 laptop:w-[50%] laptop:max-w-[500px] laptop:pl-14 desktop:pl-[7.125rem] [&_input]:placeholder:text-[0.875rem]">
         <Outlet />
       </Container>
     </>

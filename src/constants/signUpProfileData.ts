@@ -145,7 +145,7 @@ const petDisplayData: {
 
 const genderDisplayData: {
   displayValue: string;
-  stateValue: SignUpProfileFormType['gender'];
+  stateValue: SignUpProfileFormType['mate_gender'];
   iconType: IconType;
 }[] = [
   {
@@ -167,7 +167,7 @@ const genderDisplayData: {
 
 const mateNumberDisplayData: {
   displayValue: string;
-  stateValue: SignUpProfileFormType['mates_number'];
+  stateValue: SignUpProfileFormType['mate_number'];
   iconType: IconType;
 }[] = [
   {
@@ -206,7 +206,7 @@ const signUpProfileValidationConfig = {
     fields: ['appeals'],
   },
   5: {
-    fields: ['gender', 'mates_number'],
+    fields: ['mate_gender', 'mate_number'],
   },
   6: {
     fields: ['mate_appeals'],

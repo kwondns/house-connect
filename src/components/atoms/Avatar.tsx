@@ -50,7 +50,12 @@ const AvatarSize: { size: AvatarSizeType; defaultClassName: string }[] = [
 
 const Avatar = {} as AvatarComponentProps;
 AvatarSize.forEach(({ size, defaultClassName }) => {
-  Avatar[size] = ({ className, isActive = false, ...others }: AvatarProps) =>
+  Avatar[size] = ({
+    className,
+    isActive = false,
+    src,
+    ...others
+  }: AvatarProps) =>
     React.createElement('img', {
       className: cn(
         'shadow-avatar shrink-0 cursor-pointer rounded-full',
@@ -58,6 +63,9 @@ AvatarSize.forEach(({ size, defaultClassName }) => {
         defaultClassName,
         isActive && 'shadow-avatar-active',
       ),
+      src: src?.startsWith('images/avatar/')
+        ? `${import.meta.env.VITE_SUPABASE_STORAGE_URL}/avatar/${src}`
+        : `${src}`,
       ...others,
     });
 });

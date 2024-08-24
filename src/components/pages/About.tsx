@@ -72,6 +72,21 @@ export default function About() {
         <Link to="/signup-outro" className="w-40 bg-brown text-xl text-white">
           signup-outro
         </Link>
+        <Link
+          to="/mypage/activity"
+          className="w-40 bg-brown text-xl text-white"
+        >
+          my-activity
+        </Link>
+        <Link
+          to="/mypage/bookmark"
+          className="w-40 bg-brown text-xl text-white"
+        >
+          my-bookmark
+        </Link>
+        <Link to="/mypage/account" className="w-40 bg-brown text-xl text-white">
+          my-account
+        </Link>
       </Container.FlexCol>
     </Container.FlexCol>
   );
