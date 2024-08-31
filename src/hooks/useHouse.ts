@@ -16,7 +16,7 @@ import {
   successToast,
 } from '@/libs/toast';
 import { supabase } from '@/libs/supabaseClient';
-import { HouseFormType } from '@/types/house.type';
+import { HouseFormType, HouseListType } from '@/types/house.type';
 import {
   UserLifeStyleType,
   UserMateStyleType,
@@ -365,19 +365,87 @@ export const useDeleteHousePost = () => {
 };
 
 // houseList hooks
-export const useHouseList = () =>
+export const useHouseList = (filter: HouseListType) =>
   infiniteQueryOptions({
-    queryKey: ['house', 'list', 'recent'],
-    queryFn: async ({ pageParam }) =>
-      supabase
+    queryKey: ['house', 'list', 'recent', { filter: { ...filter } }],
+    queryFn: async ({ pageParam }) => {
+      let defaultQuery = supabase
         .from('house')
         .select(
           'id, representative_img, region, house_appeal, house_type, rental_type, region, district, term, deposit_price, monthly_price, user_id',
           { count: 'exact' },
         )
         // 임시 저장 제외
-        .eq('temporary', 1)
-        .range(pageParam * 12, (pageParam + 1) * 11),
+        .eq('temporary', 1);
+      const {
+        mate_gender,
+        mate_number,
+        house_type,
+        rental_type,
+        monthly_rental_price,
+        deposit_price,
+        term,
+        regions,
+      } = filter;
+
+      if (mate_gender)
+        defaultQuery = defaultQuery.eq('mate_gender', mate_gender);
+      if (mate_number)
+        defaultQuery = defaultQuery.eq('mate_number', mate_number);
+      if (typeof house_type === 'number')
+        defaultQuery = defaultQuery.eq('house_type', house_type);
+      if (rental_type)
+        defaultQuery = defaultQuery.eq('rental_type', rental_type);
+      if (monthly_rental_price) {
+        if (
+          monthly_rental_price[0] === monthly_rental_price[1] &&
+          monthly_rental_price[0] !== 510
+        )
+          defaultQuery = defaultQuery.gte('monthly_price', 500);
+        else {
+          if (monthly_rental_price[0] > 0)
+            defaultQuery = defaultQuery.gte(
+              'monthly_price',
+              monthly_rental_price,
+            );
+          if (monthly_rental_price[1] <= 500)
+            defaultQuery = defaultQuery.lte(
+              'monthly_price',
+              monthly_rental_price,
+            );
+        }
+      }
+      if (deposit_price) {
+        if (deposit_price[0] === deposit_price[1] && deposit_price[0] !== 10100)
+          defaultQuery = defaultQuery.gte('monthly_price', 10000);
+        else {
+          if (deposit_price[0] > 0)
+            defaultQuery = defaultQuery.gte('monthly_price', deposit_price);
+          if (deposit_price[1] <= 10000)
+            defaultQuery = defaultQuery.lte('monthly_price', deposit_price);
+        }
+      }
+      if (term) {
+        if (term[0] === term[1] && term[0] !== 25)
+          defaultQuery = defaultQuery.gte('monthly_price', 24);
+        else {
+          if (term[0] > 0)
+            defaultQuery = defaultQuery.gte('monthly_price', term);
+          if (term[1] <= 24)
+            defaultQuery = defaultQuery.lte('monthly_price', term);
+        }
+      }
+      if (regions) {
+        const regionQuery = regions
+          .map(region => {
+            const [city, district] = region.split(' ');
+            return `and(region.eq.${city},district.eq.${district})`;
+          })
+          .join(', ');
+        defaultQuery = defaultQuery.or(regionQuery);
+      }
+      return defaultQuery.range(pageParam * 12, (pageParam + 1) * 11);
+    },
     initialPageParam: 0,
     getNextPageParam: (lastPage, _allPages, lastPageParam, _allPageParams) =>
       (lastPage.count as number) - (lastPageParam + 1) * 12 > 0

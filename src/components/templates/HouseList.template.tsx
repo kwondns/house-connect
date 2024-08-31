@@ -1,6 +1,6 @@
 import { UseSuspenseInfiniteQueryResult } from '@tanstack/react-query';
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
-import { useEffect, useRef } from 'react';
+import { Suspense, useEffect, useRef } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { useRecoilState } from 'recoil';
 
@@ -22,6 +22,7 @@ import Link from '@/components/atoms/Link';
 import useModal from '@/hooks/useModal';
 import { HouseListFilterState } from '@/types/modal.type';
 import HouseListFilterAtomState from '@/stores/houseList.store';
+import Loading from '@/components/pages/Loading';
 
 type HouseListTemplateProps = {
   house: PostgrestSingleResponse<HouseCardType[]>[];
@@ -38,7 +39,6 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
     isOpen: true,
     type: 'HouseListFilter',
   };
-  // const filterValue = useRecoilValue(HouseListFilterAtomState);
   const [filterValue, setFilterValue] = useRecoilState(
     HouseListFilterAtomState,
   );
@@ -271,19 +271,21 @@ export default function HouseListTemplate(props: HouseListTemplateProps) {
             )}
         </Container.FlexRow>
       </Container.FlexCol>
-      <Container.Grid className="grid-cols-[1fr_1fr_1fr_1fr] gap-x-6 gap-y-10 overflow-x-auto px-16 monitor:px-0 [&>img]:object-contain">
-        {house.map(
-          item =>
-            item.data &&
-            item.data.map(datum => (
-              <HouseCard
-                key={datum.id}
-                size="w-[19.375rem] monitor:w-[23.25rem]"
-                {...datum}
-              />
-            )),
-        )}
-      </Container.Grid>
+      <Suspense fallback={<Loading />}>
+        <Container.Grid className="grid-cols-[1fr_1fr_1fr_1fr] gap-x-6 gap-y-10 overflow-x-auto px-16 monitor:px-0 [&>img]:object-contain">
+          {house.map(
+            item =>
+              item.data &&
+              item.data.map(datum => (
+                <HouseCard
+                  key={datum.id}
+                  size="w-[19.375rem] monitor:w-[23.25rem]"
+                  {...datum}
+                />
+              )),
+          )}
+        </Container.Grid>
+      </Suspense>
       {hasNextPage ? (
         <div ref={lastRef} />
       ) : (

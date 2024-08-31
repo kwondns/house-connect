@@ -4,7 +4,7 @@ import {
   RouteObject,
   RouterProvider,
 } from 'react-router-dom';
-import { ReactElement, useState } from 'react';
+import { ReactElement, Suspense, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import LayoutTemplate from '@/components/templates/Layout.template';
@@ -95,7 +95,11 @@ const routes: RouteType[] = [
       },
       {
         path: 'house',
-        element: <HouseList />,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <HouseList />
+          </Suspense>
+        ),
       },
       {
         path: 'house/regist',

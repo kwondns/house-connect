@@ -133,11 +133,11 @@ const SignUpProfileFormOriginal = z.object({
         z
           .number()
           .min(0, { message: '최소값은 0원 입니다.' })
-          .max(501, { message: '최대값은 500만원 이상 입니다.' }),
+          .max(510, { message: '최대값은 500만원 이상 입니다.' }),
         z
           .number()
           .min(0, { message: '최소값은 0원 입니다.' })
-          .max(501, { message: '최대값은 500만원 이상 입니다.' }),
+          .max(510, { message: '최대값은 500만원 이상 입니다.' }),
       ],
       { required_error: '월세의 최소 가격 및 최대 가격을 선택해주세요.' },
     )
