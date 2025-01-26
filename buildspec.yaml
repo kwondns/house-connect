@@ -13,7 +13,7 @@ phases:
       - yarn run build
   post_build:
     commands:
-      - echo Copy Contents of /build to S3 `date`
+      - echo Copy Contents of /dist to S3 `date`
       - aws s3 cp --recursive --acl public-read ./dist s3://house-connect/
       # set the cache-control headers for index.html to prevent
       # browser caching-
