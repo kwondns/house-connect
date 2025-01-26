@@ -1,0 +1,164 @@
+<svg
+  width="55"
+  height="41"
+  viewBox="0 0 55 41"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g id="semi-monthly-rental-price">
+    <g id="Group 9260">
+      <path
+        id="Rectangle 477"
+        d="M54.2461 20.4541L30.6284 6.74014L17.9427 11.5223L41.4415 25.3076L54.2461 20.4541Z"
+        fill="#5A8E77"
+      />
+      <path
+        id="Rectangle 478"
+        d="M41.5703 25.1974L17.9443 11.5225V19.3367L41.5703 33.996V25.1974Z"
+        fill="url(#paint0_linear_3852_14620)"
+      />
+      <path
+        id="Rectangle 479"
+        d="M54.2461 20.4541L41.5687 25.1869V34.0038L54.2461 28.5215V20.4541Z"
+        fill="url(#paint1_linear_3852_14620)"
+      />
+      <path
+        id="Rectangle 480"
+        d="M54.2 19.7572C54.2 19.7572 42.8236 14.2354 36.2479 9.57443C31.7415 6.38023 29.9414 4.72668 29.9414 4.72668L16.8452 8.60683C16.8452 8.60683 20.9492 11.6105 23.6346 13.4554C30.4373 18.1292 41.5867 24.6084 41.5867 24.6084L54.2 19.7572Z"
+        fill="url(#paint2_linear_3852_14620)"
+      />
+      <path
+        id="Rectangle 483"
+        d="M44.8906 14.8779L39.0729 11.4782L26.0268 16.5274L32.3486 20.2682L44.8906 14.8779Z"
+        fill="#5A8E77"
+      />
+      <path
+        id="Rectangle 484"
+        d="M32.6367 19.6966L27.1624 16.1309V25.0388L32.6367 28.4548V19.6966Z"
+        fill="#5A8E77"
+      />
+      <path
+        id="Rectangle 481"
+        d="M32.3477 19.8083L26.009 16.1309V24.4242L32.3477 28.3929V19.8083Z"
+        fill="#EBEBEB"
+      />
+      <path
+        id="Rectangle 482"
+        d="M44.793 14.6328L38.9752 11.2331L25.9478 16.2301L32.2696 19.9708L44.793 14.6328Z"
+        fill="white"
+      />
+    </g>
+    <g id="Group 9259">
+      <path
+        id="Rectangle 477_2"
+        d="M38.0312 31.3594L14.4136 17.6454L1.72783 22.4276L25.2266 36.2129L38.0312 31.3594Z"
+        fill="#5A8E77"
+      />
+      <path
+        id="Rectangle 478_2"
+        d="M25.3555 36.1026L1.72943 22.4277V26.6068L25.3555 40.9444V36.1026Z"
+        fill="url(#paint3_linear_3852_14620)"
+      />
+      <path
+        id="Rectangle 479_2"
+        d="M38.0312 31.3594L25.3539 36.0922V40.9443L38.0312 35.7916V31.3594Z"
+        fill="url(#paint4_linear_3852_14620)"
+      />
+      <path
+        id="Rectangle 480_2"
+        d="M37.9852 30.6624C37.9852 30.6624 26.6087 25.1406 20.0331 20.4797C15.5267 17.2855 13.7266 15.632 13.7266 15.632L0.63036 19.5121C0.63036 19.5121 4.73434 22.5157 7.41974 24.3607C14.2225 29.0345 25.3719 35.5137 25.3719 35.5137L37.9852 30.6624Z"
+        fill="url(#paint5_linear_3852_14620)"
+      />
+      <path
+        id="Rectangle 483_2"
+        d="M28.6758 25.7832L22.858 22.3835L9.81196 27.4327L16.1338 31.1735L28.6758 25.7832Z"
+        fill="#5A8E77"
+      />
+      <path
+        id="Rectangle 484_2"
+        d="M16.4219 30.6019L10.9476 27.0361V32.1081L16.4219 35.5241V30.6019Z"
+        fill="#5A8E77"
+      />
+      <path
+        id="Rectangle 481_2"
+        d="M16.1328 30.7136L9.79412 27.0361V31.5235L16.1328 35.4922V30.7136Z"
+        fill="#EBEBEB"
+      />
+      <path
+        id="Rectangle 482_2"
+        d="M28.5781 25.5381L22.7604 22.1384L9.73299 27.1353L16.0548 30.8761L28.5781 25.5381Z"
+        fill="white"
+      />
+    </g>
+  </g>
+  <defs>
+    <linearGradient
+      id="paint0_linear_3852_14620"
+      x1="41.5703"
+      y1="15.2681"
+      x2="32.3504"
+      y2="29.9623"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#5F8E79" />
+      <stop offset="0.89" stop-color="#7BBDA0" />
+    </linearGradient>
+    <linearGradient
+      id="paint1_linear_3852_14620"
+      x1="47.9074"
+      y1="20.4541"
+      x2="47.9074"
+      y2="34.0038"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#436959" />
+      <stop offset="1" stop-color="#639881" />
+    </linearGradient>
+    <linearGradient
+      id="paint2_linear_3852_14620"
+      x1="58.4235"
+      y1="11.1587"
+      x2="20.0985"
+      y2="20.8612"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#58967B" />
+      <stop offset="0.625" stop-color="#96E1C0" />
+      <stop offset="1" stop-color="#C5EFDD" />
+    </linearGradient>
+    <linearGradient
+      id="paint3_linear_3852_14620"
+      x1="25.3555"
+      y1="26.1733"
+      x2="16.1356"
+      y2="40.8676"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#5F8E79" />
+      <stop offset="0.89" stop-color="#7BBDA0" />
+    </linearGradient>
+    <linearGradient
+      id="paint4_linear_3852_14620"
+      x1="31.6926"
+      y1="31.3594"
+      x2="31.6926"
+      y2="44.9091"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#436959" />
+      <stop offset="1" stop-color="#639881" />
+    </linearGradient>
+    <linearGradient
+      id="paint5_linear_3852_14620"
+      x1="42.2087"
+      y1="22.0639"
+      x2="3.88362"
+      y2="31.7665"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#58967B" />
+      <stop offset="0.625" stop-color="#96E1C0" />
+      <stop offset="1" stop-color="#C5EFDD" />
+    </linearGradient>
+  </defs>
+</svg>

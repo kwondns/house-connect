@@ -1,0 +1,276 @@
+<svg
+  width="100"
+  height="72"
+  viewBox="0 0 100 72"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g id="dont-mind-pet">
+    <g id="dog">
+      <rect
+        id="Rectangle 388"
+        x="57"
+        y="41"
+        width="31"
+        height="29"
+        rx="14.5"
+        fill="#E1BE96"
+      />
+      <rect
+        id="Rectangle 392"
+        x="57"
+        y="41"
+        width="31"
+        height="29"
+        rx="14.5"
+        fill="url(#paint0_linear_3604_18521)"
+      />
+      <rect
+        id="Rectangle 389"
+        width="15.2516"
+        height="9.80462"
+        rx="4.5"
+        transform="matrix(0.754878 -0.655865 0.754878 0.655865 50 47.0029)"
+        fill="#E1BE96"
+      />
+      <rect
+        id="Rectangle 394"
+        width="15.2516"
+        height="9.80462"
+        rx="4.5"
+        transform="matrix(0.754878 -0.655865 0.754878 0.655865 50 47.0029)"
+        fill="url(#paint1_linear_3604_18521)"
+      />
+      <rect
+        id="Rectangle 390"
+        width="15.2516"
+        height="9.80462"
+        rx="4.5"
+        transform="matrix(0.754878 0.655865 -0.754878 0.655865 84.8477 38)"
+        fill="#E1BE96"
+      />
+      <rect
+        id="Rectangle 393"
+        width="15.2516"
+        height="9.80462"
+        rx="4.5"
+        transform="matrix(0.754878 0.655865 -0.754878 0.655865 84.8477 38)"
+        fill="url(#paint2_linear_3604_18521)"
+      />
+      <circle id="Ellipse 89" cx="65.5" cy="55.5" r="1.5" fill="#643927" />
+      <circle id="Ellipse 90" cx="76.5" cy="55.5" r="1.5" fill="#643927" />
+      <ellipse
+        id="Ellipse 92"
+        cx="71"
+        cy="65.5"
+        rx="7"
+        ry="5.5"
+        fill="#FDF7F1"
+      />
+      <ellipse
+        id="Ellipse 93"
+        cx="71"
+        cy="65.5"
+        rx="7"
+        ry="5.5"
+        fill="url(#paint3_linear_3604_18521)"
+      />
+      <circle id="Ellipse 91" cx="70" cy="64" r="2" fill="#643927" />
+    </g>
+    <g id="cat">
+      <path
+        id="Polygon 11"
+        d="M44.1412 43.9497L41.5335 55.1306L32.9603 46.5574L44.1412 43.9497Z"
+        fill="#D3D3D3"
+      />
+      <path
+        id="Polygon 13"
+        d="M44.1412 43.9497L41.5335 55.1306L32.9603 46.5574L44.1412 43.9497Z"
+        fill="url(#paint4_linear_3604_18521)"
+      />
+      <rect
+        id="Rectangle 391"
+        x="11"
+        y="46"
+        width="32"
+        height="24"
+        rx="12"
+        fill="#D3D3D3"
+      />
+      <rect
+        id="Rectangle 395"
+        x="11"
+        y="46"
+        width="32"
+        height="24"
+        rx="12"
+        fill="url(#paint5_linear_3604_18521)"
+      />
+      <circle id="Ellipse 86" cx="23.5" cy="58.5" r="1.5" fill="#643927" />
+      <circle id="Ellipse 87" cx="34.5" cy="58.5" r="1.5" fill="#643927" />
+      <g id="Group 703">
+        <circle id="Ellipse 93_2" cx="27.5" cy="63.5" r="2.5" fill="#FFFAFA" />
+        <circle id="Ellipse 94" cx="31.5" cy="63.5" r="2.5" fill="#FFFAFA" />
+      </g>
+      <g id="Group 705">
+        <circle
+          id="Ellipse 93_3"
+          cx="27.5"
+          cy="63.5"
+          r="2.5"
+          fill="url(#paint6_linear_3604_18521)"
+        />
+        <circle
+          id="Ellipse 94_2"
+          cx="31.5"
+          cy="63.5"
+          r="2.5"
+          fill="url(#paint7_linear_3604_18521)"
+        />
+      </g>
+      <circle id="Ellipse 88" cx="29.5" cy="61.5" r="1.5" fill="#643927" />
+      <path
+        id="Polygon 10"
+        d="M8.94975 44.9497L20.1306 47.5574L11.5574 56.1306L8.94975 44.9497Z"
+        fill="#D3D3D3"
+      />
+      <path
+        id="Polygon 12"
+        d="M8.94975 44.9497L20.1306 47.5574L11.5574 56.1306L8.94975 44.9497Z"
+        fill="url(#paint8_linear_3604_18521)"
+      />
+    </g>
+    <g id="yes">
+      <path
+        id="Vector"
+        d="M48.5 4.85714C45.9426 4.85714 43.4899 5.87308 41.6815 7.68147C39.8731 9.48986 38.8571 11.9426 38.8571 14.5C38.8571 17.0574 39.8731 19.5101 41.6815 21.3185C43.4899 23.1269 45.9426 24.1429 48.5 24.1429C51.0574 24.1429 53.5101 23.1269 55.3185 21.3185C57.1269 19.5101 58.1429 17.0574 58.1429 14.5C58.1429 11.9426 57.1269 9.48986 55.3185 7.68147C53.5101 5.87308 51.0574 4.85714 48.5 4.85714ZM62 14.5C62 18.0804 60.5777 21.5142 58.0459 24.0459C55.5142 26.5777 52.0804 28 48.5 28C44.9196 28 41.4858 26.5777 38.9541 24.0459C36.4223 21.5142 35 18.0804 35 14.5C35 10.9196 36.4223 7.4858 38.9541 4.95406C41.4858 2.42232 44.9196 1 48.5 1C52.0804 1 55.5142 2.42232 58.0459 4.95406C60.5777 7.4858 62 10.9196 62 14.5Z"
+        fill="#A5B8FB"
+      />
+      <path
+        id="Vector_2"
+        d="M48.5 4.85714C45.9426 4.85714 43.4899 5.87308 41.6815 7.68147C39.8731 9.48986 38.8571 11.9426 38.8571 14.5C38.8571 17.0574 39.8731 19.5101 41.6815 21.3185C43.4899 23.1269 45.9426 24.1429 48.5 24.1429C51.0574 24.1429 53.5101 23.1269 55.3185 21.3185C57.1269 19.5101 58.1429 17.0574 58.1429 14.5C58.1429 11.9426 57.1269 9.48986 55.3185 7.68147C53.5101 5.87308 51.0574 4.85714 48.5 4.85714ZM62 14.5C62 18.0804 60.5777 21.5142 58.0459 24.0459C55.5142 26.5777 52.0804 28 48.5 28C44.9196 28 41.4858 26.5777 38.9541 24.0459C36.4223 21.5142 35 18.0804 35 14.5C35 10.9196 36.4223 7.4858 38.9541 4.95406C41.4858 2.42232 44.9196 1 48.5 1C52.0804 1 55.5142 2.42232 58.0459 4.95406C60.5777 7.4858 62 10.9196 62 14.5Z"
+        fill="url(#paint9_linear_3604_18521)"
+      />
+    </g>
+  </g>
+  <defs>
+    <linearGradient
+      id="paint0_linear_3604_18521"
+      x1="72.5"
+      y1="41"
+      x2="72.5"
+      y2="70"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFDEB7" />
+      <stop offset="0.71" stop-color="#E1BE96" stop-opacity="0" />
+      <stop offset="1" stop-color="#E0A174" />
+    </linearGradient>
+    <linearGradient
+      id="paint1_linear_3604_18521"
+      x1="13.7682"
+      y1="0.803725"
+      x2="0.256846"
+      y2="1.19291"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFE1BF" />
+      <stop offset="0.715" stop-color="#E1BE96" stop-opacity="0" />
+      <stop offset="1" stop-color="#E0A174" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient
+      id="paint2_linear_3604_18521"
+      x1="0.401855"
+      y1="4.17226"
+      x2="14.5238"
+      y2="1.21826"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFE1BF" />
+      <stop offset="0.605" stop-color="#E1BE96" stop-opacity="0" />
+      <stop offset="1" stop-color="#E0A174" />
+      <stop offset="1" stop-color="#E0A174" />
+    </linearGradient>
+    <linearGradient
+      id="paint3_linear_3604_18521"
+      x1="71"
+      y1="60"
+      x2="71"
+      y2="71"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FDF7F1" stop-opacity="0" />
+      <stop offset="0.95" stop-color="#EACFB7" />
+    </linearGradient>
+    <linearGradient
+      id="paint4_linear_3604_18521"
+      x1="41.999"
+      y1="43.5"
+      x2="39.999"
+      y2="53"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFF3E1" />
+      <stop offset="0.565" stop-color="#D3D3D3" stop-opacity="0" />
+      <stop offset="1" stop-color="#B6B6B6" />
+    </linearGradient>
+    <linearGradient
+      id="paint5_linear_3604_18521"
+      x1="27"
+      y1="45"
+      x2="27"
+      y2="70"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#F3E7D6" />
+      <stop offset="0.265" stop-color="#D3D3D3" />
+      <stop offset="1" stop-color="#B4B4B4" />
+    </linearGradient>
+    <linearGradient
+      id="paint6_linear_3604_18521"
+      x1="27.5"
+      y1="61"
+      x2="27.5"
+      y2="66"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0.375" stop-color="#FFFAFA" stop-opacity="0" />
+      <stop offset="1" stop-color="#DCD2D2" />
+    </linearGradient>
+    <linearGradient
+      id="paint7_linear_3604_18521"
+      x1="31.5"
+      y1="61"
+      x2="31.5"
+      y2="66"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0.375" stop-color="#FFFAFA" stop-opacity="0" />
+      <stop offset="1" stop-color="#DCD2D2" />
+    </linearGradient>
+    <linearGradient
+      id="paint8_linear_3604_18521"
+      x1="12"
+      y1="42.5"
+      x2="17"
+      y2="55"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FEF3E1" />
+      <stop offset="0.52" stop-color="#D3D3D3" stop-opacity="0" />
+      <stop offset="1" stop-color="#C2C2C2" />
+    </linearGradient>
+    <linearGradient
+      id="paint9_linear_3604_18521"
+      x1="48.5"
+      y1="1"
+      x2="48.5"
+      y2="34"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#DAE1F9" />
+      <stop offset="0.53" stop-color="#6788FE" />
+      <stop offset="1" stop-color="#A5B8FB" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,16 @@
+<svg
+  width="34"
+  height="40"
+  viewBox="0 0 34 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    id="Vector"
+    d="M2.5 20V34.4C2.5 35.3548 2.88192 36.2705 3.56174 36.9456C4.24156 37.6207 5.16359 38 6.125 38H27.875C28.8364 38 29.7584 37.6207 30.4383 36.9456C31.1181 36.2705 31.5 35.3548 31.5 34.4V20M24.25 9.2L17 2M17 2L9.75 9.2M17 2V25.4"
+    stroke="#966E5D"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -8,7 +8,7 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -18,14 +18,31 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* absolute paths */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["/*"],
+      "@/components/*": ["components/*"],
+      "@/libs/*": ["libs/*"],
+      "@/db/*": ["db/*"],
+      "@/types/*": ["types/*"],
+      "@/assets/*": ["assets/*"],
+      "@/constants/*": ["constants/*"],
+      "@/mocks/*": ["mocks/*"],
+      "@/stores/*": ["stores/*"],
+      "@/hooks/*": ["hooks/*"]
+    },
+    "types": ["vite-plugin-svgr/client"]
   },
   "include": [
     "src",
     ".eslintrc.cjs",
     "vite.config.ts",
     "tailwind.config.ts",
-    "postcss.config.js"
+    "postcss.config.js",
+    "src/types/svg.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

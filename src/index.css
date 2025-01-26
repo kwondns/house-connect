@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Myanmar Khyay';
+      src: url('/src/assets/fonts/Khyay-Regular.ttf');
+  }
+  @media screen {
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 100%;
+}
+
+*[lang='en'] {
+  font-family: 'Myanmar Khyay', sans-serif;
+}
+
+*[lang='ko'] {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+  font-size: 13px;
+  @screen tablet {
+    font-size: 16px;
+  }
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Myanmar Khyay', 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+}
