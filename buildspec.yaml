@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - echo Install Source NPM dependencies With Yarn
+      - yarn install
+  build:
+    commands:
+      - echo Build Started on `date`
+      - yarn run build
+  post_build:
+    commands:
+      - echo Copy Contents of /build to S3 `date`
+      - aws s3 cp --recursive --acl public-read ./build s3://house-connect/
+      # set the cache-control headers for index.html to prevent
+      # browser caching-
+      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./build/index.html s3://house-connect/
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build
