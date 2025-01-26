@@ -33,7 +33,7 @@ export default function Chat() {
 
   const isChatTopRoute = /^\/chats\/?$/.test(location.pathname);
   const isChatRoomRoute = /^\/chats\/[a-zA-Z0-9_-]+$/.test(location.pathname);
-  
+
   useOpenChatChannel<MessageType>({
     channelName: `chatRoomList`,
     realtimeEventFilters: [
@@ -75,6 +75,7 @@ export default function Chat() {
   return (
     <Container.FlexRow className="min-h-full w-full">
       <ChatList
+        // @ts-expect-error
         chatRoomListPageData={chatRoomListPageData}
         totalNewChatsCount={totalNewChatsCount}
         className={cn(

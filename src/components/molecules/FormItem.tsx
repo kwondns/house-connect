@@ -3,9 +3,6 @@ import { useEffect } from 'react';
 
 import TextField, { TextFieldProps } from '@/components/molecules/TextField';
 import Input from '@/components/atoms/Input';
-import TextAreaField, {
-  TextAreaFieldProps,
-} from '@/components/molecules/TextAreaField';
 import Container from '@/components/atoms/Container';
 import IconButton from './IconButton';
 
@@ -75,46 +72,4 @@ FormItem.Hidden = function FormItemHidden<T extends FieldValues>(
     );
 
   return <span>Name 속성이 필요합니다</span>;
-};
-
-// // ! controller로 감쌀 필요가 없이 register
-// FormItem.TextArea = function FormItemTextArea<T extends FieldValues>(
-//   props: TextAreaFieldProps<T>,
-// ) {};
-
-// FormItem.TextAreaWithState => controller로 감싸고(control을 이용하는 것 )
-FormItem.TextAreaField = function FormItemTextAreaField<T extends FieldValues>(
-  // eslint-disable-next-line react/require-default-props
-  props: TextAreaFieldProps<T> & { isControlled?: boolean },
-) {
-  const { control, getValues } = useFormContext();
-  const {
-    defaultValue,
-    name,
-    labelName,
-    options,
-    containerStyle,
-    textAreaStyle,
-    isControlled = false,
-  } = props;
-  const fieldValue = getValues(name as string) || defaultValue;
-
-  return isControlled ? (
-    <Controller
-      name={name}
-      control={control}
-      defaultValue={fieldValue}
-      rules={options}
-      render={({ field }) => (
-        <TextAreaField
-          {...field}
-          containerStyle={containerStyle}
-          labelName={labelName}
-          className={textAreaStyle}
-        />
-      )}
-    />
-  ) : (
-    <TextAreaField />
-  );
 };

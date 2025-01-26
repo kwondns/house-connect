@@ -4,14 +4,14 @@ const formatDateByCountry = (
   locale: Intl.LocalesArgument = 'ko-KR',
 ) => {
   if (time) {
-    return new Intl.DateTimeFormat(locale, {
+    return new Intl.DateTimeFormat(locale as string, {
       hour: 'numeric',
       minute: 'numeric',
       hour12: true,
     }).format(date);
   }
 
-  return new Intl.DateTimeFormat(locale, {
+  return new Intl.DateTimeFormat(locale as string, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

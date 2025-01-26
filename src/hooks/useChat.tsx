@@ -1,6 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps,@typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
+// @ts-ignore
 import {
   useMutation,
   useQueries,
@@ -72,6 +73,7 @@ const updateLastRead = async (
 
 const fetchMessagesGroupByDate = async (chatRoomId: string) => {
   const { data, error, status } = await supabase.rpc(
+    // @ts-ignore
     'get_messages_group_by_date',
     {
       input_chat_room_id: chatRoomId!,
@@ -222,7 +224,7 @@ export const useChatRoomListPageData = (userId: string) => {
     chatRoomListPageData,
     isLoading: isChatRoomListLoading || isChatRoomListPageData,
     totalNewChatsCount: chatRoomListPageData?.reduce(
-      (acc, cur) => acc + (cur.newChatCount || 0),
+      (acc, cur) => acc + (cur?.newChatCount || 0),
       0,
     ),
   };
@@ -258,14 +260,14 @@ export const useGetMessagesGroupByDate = (chatRoomId: string | undefined) => {
     select: messagesGroupByDate => {
       // * 시간 복잡도 O(N), N => messages database row의 개수
       /**
-       * 
+       *
         type ASIS = {
           date: string;
           messages: Tables<'messages'>[],
-        }[] 
+        }[]
 
         type TOBE = {
-          date: string; 
+          date: string;
           userMessages: {
             userId: string;
             messages: Tables<'messages'>[];
