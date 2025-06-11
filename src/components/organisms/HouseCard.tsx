@@ -45,7 +45,7 @@ export default function HouseCard(props: HouseCardProps) {
       >
         <Img
           className="h-[12.5rem] rounded-b-none"
-          src={`${import.meta.env.VITE_SUPABASE_BUCKET_URL}/house/${user_id}/${id}/${representative_img}`}
+          src={`${import.meta.env.VITE_SUPABASE_STORAGE_URL}/house/${user_id}/${id}/${representative_img}`}
         />
         <Container.FlexRow className="absolute inset-x-0 top-0 items-start p-4">
           <Container.FlexRow className="flex-1 flex-wrap gap-1 [&>div]:rounded-[1.5625rem] [&>div]:px-[0.625rem] [&>div]:py-[0.375rem]">

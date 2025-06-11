@@ -1,5 +1,5 @@
 import { ComponentProps, useMemo, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
 import Container from '@/components/atoms/Container';
@@ -60,6 +60,7 @@ function UserMenu({
   hasNewAlarm,
   isUserMenuActive,
 }: UserMenuProps) {
+  const navigate = useNavigate();
   return (
     <Container.FlexRow
       className={cn('items-center justify-between gap-7', className)}
@@ -71,9 +72,17 @@ function UserMenu({
             iconType={hasNewAlarm ? 'alarm-exist' : 'alarm-none'}
           />
           {user?.avatar ? (
-            <Avatar.XS src={user.avatar} isActive={isUserMenuActive} />
+            <Avatar.XS
+              src={user.avatar}
+              isActive={isUserMenuActive}
+              onClick={() => navigate('/mypage/activity')}
+            />
           ) : (
-            <IconButton button="Ghost" iconType="avatar" />
+            <IconButton
+              button="Ghost"
+              iconType="avatar"
+              onClick={() => navigate('/mypage/activity')}
+            />
           )}
         </>
       )}
@@ -92,6 +101,7 @@ function UserMenu({
     </Container.FlexRow>
   );
 }
+
 export default function Header({ className, isLogin, ...others }: Props) {
   // ! TODO: 알람기능 추가시 바꿔야 함
   const [hasNewAlarm] = useState(false);
