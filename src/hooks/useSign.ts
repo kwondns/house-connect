@@ -156,7 +156,7 @@ export const useSignInSocial = () => {
       supabase.auth.signInWithOAuth({
         provider: payload,
         // ! TODO: dev, production에 따라 redirect URL 변경해야 함.
-        options: { redirectTo: 'http://localhost:5173/sign' },
+        options: { redirectTo: import.meta.env.VITE_KAKAO_REDIRECT_URL },
       }),
     onMutate: () => createToast('signin', '로그인 시도 중...'),
     onError: error => {
