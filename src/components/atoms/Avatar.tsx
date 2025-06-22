@@ -63,8 +63,8 @@ AvatarSize.forEach(({ size, defaultClassName }) => {
         defaultClassName,
         isActive && 'shadow-avatar-active',
       ),
-      src: src?.startsWith('images/avatar/')
-        ? `${import.meta.env.VITE_SUPABASE_STORAGE_URL}/avatar/${src}`
+      src: src?.startsWith('avatar/')
+        ? `${import.meta.env.VITE_SUPABASE_STORAGE_URL}/${src}`
         : `${src}`,
       ...others,
     });

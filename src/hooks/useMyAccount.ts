@@ -21,8 +21,7 @@ export const useMyAccountUpdate = () => {
             cacheControl: '300',
             upsert: true,
           });
-        if (result.data?.path)
-          avatarUploadResult = `images/${result.data.path}`;
+        if (result.data?.path) avatarUploadResult = result.data.path;
       }
       const updateData = {};
       const { avatar, ...others } = payload;
